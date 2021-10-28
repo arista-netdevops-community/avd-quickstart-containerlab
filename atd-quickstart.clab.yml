@@ -1,0 +1,66 @@
+name: ATD
+
+mgmt:
+  network: custom_mgmt
+  ipv4_subnet: 192.168.123.0/24
+
+topology:
+  nodes:
+    SPINE1:
+      kind: ceos
+      image: ceos-lab:4.27.0F
+      startup-config: init-configs/SPINE1.cfg
+      mgmt_ipv4: 192.168.123.11
+    SPINE2:
+      kind: ceos
+      image: ceos-lab:4.27.0F
+      startup-config: init-configs/SPINE2.cfg
+      mgmt_ipv4: 192.168.123.12
+    LEAF1:
+      kind: ceos
+      image: ceos-lab:4.27.0F
+      startup-config: init-configs/LEAF1.cfg
+      mgmt_ipv4: 192.168.123.21
+    LEAF2:
+      kind: ceos
+      image: ceos-lab:4.27.0F
+      startup-config: init-configs/LEAF2.cfg
+      mgmt_ipv4: 192.168.123.22
+    LEAF3:
+      kind: ceos
+      image: ceos-lab:4.27.0F
+      startup-config: init-configs/LEAF3.cfg
+      mgmt_ipv4: 192.168.123.23
+    LEAF4:
+      kind: ceos
+      image: ceos-lab:4.27.0F
+      startup-config: init-configs/LEAF4.cfg
+      mgmt_ipv4: 192.168.123.24
+    HOST1:
+      kind: ceos
+      image: ceos-lab:4.27.0F
+      startup-config: init-configs/HOST1.cfg
+      mgmt_ipv4: 192.168.123.31
+    HOST2:
+      kind: ceos
+      image: ceos-lab:4.27.0F
+      startup-config: init-configs/HOST2.cfg
+      mgmt_ipv4: 192.168.123.32
+
+  links:
+  - endpoints: ["SPINE1:eth1", "LEAF1:eth1"]
+  - endpoints: ["SPINE1:eth2", "LEAF2:eth1"]
+  - endpoints: ["SPINE1:eth3", "LEAF3:eth1"]
+  - endpoints: ["SPINE1:eth4", "LEAF4:eth1"]
+  - endpoints: ["SPINE2:eth1", "LEAF1:eth2"]
+  - endpoints: ["SPINE2:eth2", "LEAF2:eth2"]
+  - endpoints: ["SPINE2:eth3", "LEAF3:eth2"]
+  - endpoints: ["SPINE2:eth4", "LEAF4:eth2"]
+  - endpoints: ["LEAF1:eth3", "LEAF2:eth3"]
+  - endpoints: ["LEAF1:eth4", "LEAF2:eth4"]
+  - endpoints: ["LEAF3:eth3", "LEAF4:eth3"]
+  - endpoints: ["LEAF3:eth4", "LEAF4:eth4"]
+  - endpoints: ["LEAF1:eth5", "HOST1:eth1"]
+  - endpoints: ["LEAF2:eth5", "HOST1:eth2"]
+  - endpoints: ["LEAF3:eth5", "HOST2:eth1"]
+  - endpoints: ["LEAF4:eth5", "HOST2:eth2"]
