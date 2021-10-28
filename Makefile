@@ -21,6 +21,3 @@ graph: ## Build lab graph
 .PHONY: rm
 rm: ## Remove all containerlab directories
 	sudo rm -rf clab-ATD
-
-# .PHONY: venv
-# venv: ## build Python virtual environment
