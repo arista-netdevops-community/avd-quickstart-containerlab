@@ -6,35 +6,35 @@ mgmt:
 
 topology:
   nodes:
-    SPINE1:
+    spine1:
       kind: ceos
       image: ceos-lab:4.27.0F
-      startup-config: init-configs/SPINE1.cfg
+      startup-config: init-configs/spine1.cfg
       mgmt_ipv4: 192.168.123.11
-    SPINE2:
+    spine2:
       kind: ceos
       image: ceos-lab:4.27.0F
-      startup-config: init-configs/SPINE2.cfg
+      startup-config: init-configs/spine2.cfg
       mgmt_ipv4: 192.168.123.12
-    LEAF1:
+    leaf1:
       kind: ceos
       image: ceos-lab:4.27.0F
-      startup-config: init-configs/LEAF1.cfg
+      startup-config: init-configs/leaf1.cfg
       mgmt_ipv4: 192.168.123.21
-    LEAF2:
+    leaf2:
       kind: ceos
       image: ceos-lab:4.27.0F
-      startup-config: init-configs/LEAF2.cfg
+      startup-config: init-configs/leaf2.cfg
       mgmt_ipv4: 192.168.123.22
-    LEAF3:
+    leaf3:
       kind: ceos
       image: ceos-lab:4.27.0F
-      startup-config: init-configs/LEAF3.cfg
+      startup-config: init-configs/leaf3.cfg
       mgmt_ipv4: 192.168.123.23
-    LEAF4:
+    leaf4:
       kind: ceos
       image: ceos-lab:4.27.0F
-      startup-config: init-configs/LEAF4.cfg
+      startup-config: init-configs/leaf4.cfg
       mgmt_ipv4: 192.168.123.24
     HOST1:
       kind: ceos
@@ -48,19 +48,19 @@ topology:
       mgmt_ipv4: 192.168.123.32
 
   links:
-  - endpoints: ["SPINE1:eth1", "LEAF1:eth1"]
-  - endpoints: ["SPINE1:eth2", "LEAF2:eth1"]
-  - endpoints: ["SPINE1:eth3", "LEAF3:eth1"]
-  - endpoints: ["SPINE1:eth4", "LEAF4:eth1"]
-  - endpoints: ["SPINE2:eth1", "LEAF1:eth2"]
-  - endpoints: ["SPINE2:eth2", "LEAF2:eth2"]
-  - endpoints: ["SPINE2:eth3", "LEAF3:eth2"]
-  - endpoints: ["SPINE2:eth4", "LEAF4:eth2"]
-  - endpoints: ["LEAF1:eth3", "LEAF2:eth3"]
-  - endpoints: ["LEAF1:eth4", "LEAF2:eth4"]
-  - endpoints: ["LEAF3:eth3", "LEAF4:eth3"]
-  - endpoints: ["LEAF3:eth4", "LEAF4:eth4"]
-  - endpoints: ["LEAF1:eth5", "HOST1:eth1"]
-  - endpoints: ["LEAF2:eth5", "HOST1:eth2"]
-  - endpoints: ["LEAF3:eth5", "HOST2:eth1"]
-  - endpoints: ["LEAF4:eth5", "HOST2:eth2"]
+  - endpoints: ["spine1:eth1", "leaf1:eth1"]
+  - endpoints: ["spine1:eth2", "leaf2:eth1"]
+  - endpoints: ["spine1:eth3", "leaf3:eth1"]
+  - endpoints: ["spine1:eth4", "leaf4:eth1"]
+  - endpoints: ["spine2:eth1", "leaf1:eth2"]
+  - endpoints: ["spine2:eth2", "leaf2:eth2"]
+  - endpoints: ["spine2:eth3", "leaf3:eth2"]
+  - endpoints: ["spine2:eth4", "leaf4:eth2"]
+  - endpoints: ["leaf1:eth3", "leaf2:eth3"]
+  - endpoints: ["leaf1:eth4", "leaf2:eth4"]
+  - endpoints: ["leaf3:eth3", "leaf4:eth3"]
+  - endpoints: ["leaf3:eth4", "leaf4:eth4"]
+  - endpoints: ["leaf1:eth5", "HOST1:eth1"]
+  - endpoints: ["leaf2:eth5", "HOST1:eth2"]
+  - endpoints: ["leaf3:eth5", "HOST2:eth1"]
+  - endpoints: ["leaf4:eth5", "HOST2:eth2"]
