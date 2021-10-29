@@ -35,3 +35,7 @@ run: ## run docker image
 .PHONY: onboard
 onboard: ## onboard devices to CVP
 	$(CURRENT_DIR)/onboard_devices_to_cvp.py
+
+.PHONY: inventory
+inventory: ## onboard devices to CVP
+	$(CURRENT_DIR)/create-avd-repository.py -out .
