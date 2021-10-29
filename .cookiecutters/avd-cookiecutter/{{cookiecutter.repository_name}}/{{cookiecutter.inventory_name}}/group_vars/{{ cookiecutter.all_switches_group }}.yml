@@ -1,6 +1,9 @@
 ---
 # OOB Management network default gateway.
 mgmt_gateway: {{ cookiecutter.general.management_gateway }}
+# If ATD is running cEOS, management interface is Management0
+# If ATD is running vEOS, management interface is Management1
+mgmt_interface: Management0
 
 # local users
 {%- if cookiecutter.general.local_users is defined %}
