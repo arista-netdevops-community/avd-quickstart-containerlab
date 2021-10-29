@@ -1,0 +1,8 @@
+hostname,type,management_ip,platform,mac_address,filter_tenants,filter_tags
+spine1,spine,192.168.122.10/24,vEOS,0c:1d:c0:1d:62:01,,,
+spine2,spine,192.168.122.11/24,vEOS,0c:1d:c0:1d:62:02,,,
+leaf1,l3leaf,192.168.122.12/24,vEOS,0c:1d:c0:1d:62:03,,,
+leaf2,l3leaf,192.168.122.13/24,vEOS,0c:1d:c0:1d:62:04,,,
+leaf3,l3leaf,192.168.122.14/24,vEOS,0c:1d:c0:1d:62:05,,,
+leaf4,l3leaf,192.168.122.15/24,vEOS,0c:1d:c0:1d:62:06,,,
+spine3,spine,192.168.122.15/24,vEOS,0c:1d:c0:1d:62:07,,,

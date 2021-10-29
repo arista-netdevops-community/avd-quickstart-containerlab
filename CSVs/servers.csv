@@ -1,0 +1,5 @@
+server_name,description,rack_name,switch_hostname,switch_port,profile,port_channel_mode
+host1,leaf1_to_host1,pod1,leaf1,Ethernet5,TENANT_A,active
+host1,,,leaf2,Ethernet5,,
+host2,leaf3_to_host2,pod2,leaf3,Ethernet5,TENANT_A,active
+host2,,,leaf4,Ethernet5,,

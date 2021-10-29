@@ -1,0 +1,67 @@
+---
+# Name of the directory where AVD repository will be located
+# There is no need to specify full path here, just directory name
+avd_repository_name: avd_quickstart_inventory
+# Management parameters
+# OOB management gateway address
+management_gateway: 192.168.123.1
+# DNS server list
+dns_server_list: [ 8.8.8.8 ]
+# DNS domain name
+dns_domain_name: lab.net
+# NTP server list
+ntp_server_list: [ 216.239.35.0, 216.239.35.4, 216.239.35.8 ]
+# CVP ingest key, use empty string if key is not defined
+cvp_ingest_key: ''
+# CVP cluster nodes
+cvp_shared_ip: 129.168.122.241
+cvp_username: cvpadmin
+cvp_password: arista123
+cvp_instance_ips: [ 129.168.122.241 ]
+
+# Fabric Parameters
+# leaf-spine fabric name
+fabric_name: AVD_FABRIC
+# IP address pool for /31 p2p underlay links
+# Assign range larger then total [Spines * total potential leafs * 2]
+l3leaf_underlay_uplink_ipv4_pool: 172.31.255.0/24
+# IP address ranges for /32 evpn Loopbacks
+# Assign range larger then total Spines + total leafs switches
+spine_loopback_ipv4_pool: 192.0.255.0/25
+leaf_loopback_ipv4_pool: 192.0.255.128/25
+# VTEP VXLAN Tunnel source loopback IP for leaf switches, assigned in /32s
+# Assign range larger then total leaf switches
+l3leaf_vtep_loopback_ipv4_pool: 192.0.254.0/24
+# MLAG IP pools
+# Assign range larger then total Spines + total leafs switches
+# MLAG L3 peering VLAN 4093
+mlag_peer_l3_ipv4_pool: 10.255.251.0/24
+# MLAG peering VLAN 4094
+mlag_peer_ipv4_pool: 10.255.252.0/24
+
+# BGP underlay parameters
+spine_bgp_asn: 65001
+leaf_as_range: 65101-65132
+# BGP peering password, type-7 encrypted
+bgp_peering_password: "AQQvKeimxJu+uGQ/yYvv9w=="
+
+# L3leaf Defaults
+virtual_router_mac_address: 00:1c:73:00:dc:01
+l3leaf_stp_priority: 4096
+l3leaf_stp_mode: mstp
+# Use 1500 for vEOS, 9200 for hardware platforms
+underlay_p2p_link_mtu: 1500
+
+# Local Users
+local_users:
+  ansible_local:
+    privilege: 15
+    role: network-admin
+    sha512_password: "$6$Dzu11L7yp9j3nCM9$FSptxMPyIL555OMO.ldnjDXgwZmrfMYwHSr0uznE5Qoqvd9a6UdjiFcJUhGLtvXVZR1r.A/iF5aAt50hf/EK4/"
+  cvpadmin:
+    privilege: 15
+    role: network-admin
+    sha512_password: "$6$aQjjIocu2Pxl0baz$.3hUsqFqET6CHtNoc2nKIrmwPY39NYBaG.l2dX1hmiUc46lWorrG7V25b5XeqwSCJnRs4pOe9teK1/5RK8mve/"
+
+# Enable vlan aware bundles
+vxlan_vlan_aware_bundles: True

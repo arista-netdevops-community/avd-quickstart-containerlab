@@ -1,0 +1,13 @@
+---
+- name: "Run Fabric states validation"
+  hosts: {{cookiecutter.fabric_name}}
+  connection: local
+  gather_facts: false
+  collections:
+    - arista.avd
+    - arista.cvp
+  tasks:
+
+    - name: deploy configuration to device
+      import_role:
+         name: arista.avd.eos_validate_state

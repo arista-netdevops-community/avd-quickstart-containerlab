@@ -1,0 +1,35 @@
+tenants:
+{%- for tenant in cookiecutter.services.tenants %}
+  {{ tenant.name }}:
+    mac_vrf_vni_base: {{ tenant.mac_vrf_vni_base }}
+{%-     if tenant.vrfs is defined %}
+    vrfs:
+{%-         for vrf in tenant.vrfs %}
+      {{ vrf.name }}:
+        vrf_vni: {{ vrf.vrf_vni }}
+        vtep_diagnostic:
+          loopback: {{ vrf.vtep_diagnostic.loopback }}
+          loopback_ip_range: {{ vrf.vtep_diagnostic.loopback_ip_range }}
+{%-             if tenant.svis is defined %}
+        svis:
+{%-                 for svi in tenant.svis %}
+          {{ svi.vlan_number }}:
+            name: {{ svi.vlan_name }}
+            {% if svi.tags is defined %}tags: {{ svi.tags }}{% endif %}
+            enabled: true
+            ip_address_virtual: {{ svi.ip_address_virtual }}
+            {% if svi.mtu is defined %}mtu: {{ svi.mtu }}{% endif %}
+            {% if svi.igmp_snooping_enabled is defined %}igmp_snooping_enabled: {{ svi.igmp_snooping_enabled }}{% endif %}
+{%-                 endfor %}
+{%-             endif %}
+{%-         endfor %}
+{%-     endif %}
+{%-     if tenant.l2vlans is defined %}
+    l2vlans:
+{%-         for vlan in tenant.l2vlans %}
+      {{ vlan.vlan_number }}:
+        name: {{ vlan.vlan_name }}
+        {% if vlan.tags is defined %}tags: {{ vlan.tags }}{% endif %}
+{%-         endfor %}
+{%-     endif %}
+{%- endfor %}

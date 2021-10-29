@@ -1,0 +1,701 @@
+{
+    "_jinja2_env_vars": {
+        "lstrip_blocks": true,
+        "trim_blocks": true
+    },
+    "csv": {
+        "inventory": [
+            {
+                "hostname": "spine1",
+                "type": "spine",
+                "management_ip": "192.168.122.10/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:01",
+                "filter_tenants": null,
+                "filter_tags": null
+            },
+            {
+                "hostname": "spine2",
+                "type": "spine",
+                "management_ip": "192.168.122.11/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:02",
+                "filter_tenants": null,
+                "filter_tags": null
+            },
+            {
+                "hostname": "leaf1",
+                "type": "l3leaf",
+                "management_ip": "192.168.122.12/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:03",
+                "filter_tenants": null,
+                "filter_tags": null
+            },
+            {
+                "hostname": "leaf2",
+                "type": "l3leaf",
+                "management_ip": "192.168.122.13/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:04",
+                "filter_tenants": null,
+                "filter_tags": null
+            },
+            {
+                "hostname": "leaf3",
+                "type": "l3leaf",
+                "management_ip": "192.168.122.14/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:05",
+                "filter_tenants": null,
+                "filter_tags": null
+            },
+            {
+                "hostname": "leaf4",
+                "type": "l3leaf",
+                "management_ip": "192.168.122.15/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:06",
+                "filter_tenants": null,
+                "filter_tags": null
+            },
+            {
+                "hostname": "spine3",
+                "type": "spine",
+                "management_ip": "192.168.122.15/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:07",
+                "filter_tenants": null,
+                "filter_tags": null
+            }
+        ],
+        "cabling_plan": [
+            {
+                "local_switch": "leaf1",
+                "local_interface": "Ethernet2",
+                "remote_switch": "spine1",
+                "remote_interface": "Ethernet2",
+                "notes_and_comments": null
+            },
+            {
+                "local_switch": "leaf1",
+                "local_interface": "Ethernet3",
+                "remote_switch": "spine2",
+                "remote_interface": "Ethernet2",
+                "notes_and_comments": null
+            },
+            {
+                "local_switch": "leaf2",
+                "local_interface": "Ethernet2",
+                "remote_switch": "spine1",
+                "remote_interface": "Ethernet3",
+                "notes_and_comments": null
+            },
+            {
+                "local_switch": "leaf2",
+                "local_interface": "Ethernet3",
+                "remote_switch": "spine2",
+                "remote_interface": "Ethernet3",
+                "notes_and_comments": null
+            },
+            {
+                "local_switch": "leaf3",
+                "local_interface": "Ethernet2",
+                "remote_switch": "spine1",
+                "remote_interface": "Ethernet4",
+                "notes_and_comments": null
+            },
+            {
+                "local_switch": "leaf3",
+                "local_interface": "Ethernet3",
+                "remote_switch": "spine2",
+                "remote_interface": "Ethernet4",
+                "notes_and_comments": null
+            },
+            {
+                "local_switch": "leaf4",
+                "local_interface": "Ethernet2",
+                "remote_switch": "spine1",
+                "remote_interface": "Ethernet5",
+                "notes_and_comments": null
+            },
+            {
+                "local_switch": "leaf4",
+                "local_interface": "Ethernet3",
+                "remote_switch": "spine2",
+                "remote_interface": "Ethernet5",
+                "notes_and_comments": null
+            },
+            {
+                "local_switch": "leaf1",
+                "local_interface": "Ethernet1",
+                "remote_switch": "leaf2",
+                "remote_interface": "Ethernet1",
+                "notes_and_comments": "MLAG peer link"
+            },
+            {
+                "local_switch": "leaf3",
+                "local_interface": "Ethernet1",
+                "remote_switch": "leaf4",
+                "remote_interface": "Ethernet1",
+                "notes_and_comments": "MLAG peer link"
+            },
+            {
+                "local_switch": "leaf1",
+                "local_interface": "Ethernet4",
+                "remote_switch": "spine3",
+                "remote_interface": "Ethernet6",
+                "notes_and_comments": null
+            },
+            {
+                "local_switch": "leaf2",
+                "local_interface": "Ethernet4",
+                "remote_switch": "spine3",
+                "remote_interface": "Ethernet7",
+                "notes_and_comments": null
+            },
+            {
+                "local_switch": "leaf3",
+                "local_interface": "Ethernet4",
+                "remote_switch": "spine3",
+                "remote_interface": "Ethernet8",
+                "notes_and_comments": null
+            }
+        ],
+        "server_list": [
+            {
+                "server_name": "host1",
+                "description": "leaf1_to_host1",
+                "rack_name": "pod1",
+                "switch_hostname": "leaf1",
+                "switch_port": "Ethernet4",
+                "profile": "TENANT_A",
+                "port_channel_mode": "active"
+            },
+            {
+                "server_name": "host1",
+                "description": "",
+                "rack_name": "",
+                "switch_hostname": "leaf1",
+                "switch_port": "Ethernet5",
+                "profile": "",
+                "port_channel_mode": ""
+            },
+            {
+                "server_name": "host1",
+                "description": "",
+                "rack_name": "",
+                "switch_hostname": "leaf2",
+                "switch_port": "Ethernet4",
+                "profile": "",
+                "port_channel_mode": ""
+            },
+            {
+                "server_name": "host1",
+                "description": "",
+                "rack_name": "",
+                "switch_hostname": "leaf2",
+                "switch_port": "Ethernet5",
+                "profile": "",
+                "port_channel_mode": ""
+            },
+            {
+                "server_name": "host2",
+                "description": "leaf3_to_host2",
+                "rack_name": "pod2",
+                "switch_hostname": "leaf3",
+                "switch_port": "Ethernet4",
+                "profile": "TENANT_A",
+                "port_channel_mode": "active"
+            },
+            {
+                "server_name": "host2",
+                "description": "",
+                "rack_name": "",
+                "switch_hostname": "leaf3",
+                "switch_port": "Ethernet5",
+                "profile": "",
+                "port_channel_mode": ""
+            },
+            {
+                "server_name": "host2",
+                "description": "",
+                "rack_name": "",
+                "switch_hostname": "leaf4",
+                "switch_port": "Ethernet4",
+                "profile": "",
+                "port_channel_mode": ""
+            },
+            {
+                "server_name": "host2",
+                "description": "",
+                "rack_name": "",
+                "switch_hostname": "leaf4",
+                "switch_port": "Ethernet5",
+                "profile": "",
+                "port_channel_mode": ""
+            }
+        ],
+        "server_port_profiles": [
+            {
+                "profile_name": "TENANT_A",
+                "switchport_mode": "access",
+                "vlan_string": "110"
+            }
+        ],
+        "tenants_vrfs": [
+            {
+                "tenant_name": "Tenant_A",
+                "tenant_mac_vrf_base_vni": "10000",
+                "ip_vrf_name": "Tenant_A_OP_Zone",
+                "ip_vrf_vni": "10",
+                "vrf_diagnostic_loopback_number": "100",
+                "vrf_diagnostic_loopback_ip_range": "10.255.1.0/24"
+            }
+        ],
+        "vlans_svis": [
+            {
+                "tenant_name": "Tenant_A",
+                "vlan_number": "110",
+                "vlan_name": "Tenant_A_OP_Zone_1",
+                "filter_tags": "opzone another_tag",
+                "ip_vrf": "Tenant_A_OP_Zone",
+                "ip_virtual_address_and_mask": "10.1.10.1/24",
+                "mtu": "",
+                "igmp_snooping_enabled": ""
+            },
+            {
+                "tenant_name": "Tenant_A",
+                "vlan_number": "160",
+                "vlan_name": "Tenant_A_VMOTION",
+                "filter_tags": "vmotion",
+                "ip_vrf": "",
+                "ip_virtual_address_and_mask": null,
+                "mtu": null,
+                "igmp_snooping_enabled": null
+            }
+        ]
+    },
+    "general": {
+        "avd_repository_name": "my_lab_avd",
+        "management_gateway": "192.168.122.1",
+        "dns_server_list": [
+            "8.8.8.8",
+            "192.168.122.1"
+        ],
+        "dns_domain_name": "lab.net",
+        "ntp_server_list": [
+            "216.239.35.0",
+            "216.239.35.4",
+            "216.239.35.8"
+        ],
+        "aaa_server_list": [
+            "192.168.0.1"
+        ],
+        "aaa_key_list": [
+            "0207165218120E"
+        ],
+        "aaa_server_type": "RADIUS",
+        "cvp_ingest_key": "atd-lab",
+        "cvp_shared_ip": "192.168.0.5",
+        "cvp_username": "cvpadmin",
+        "cvp_password": "arista123",
+        "cvp_instance_ips": [
+            "192.168.0.1",
+            "192.168.0.2",
+            "192.168.0.3"
+        ],
+        "fabric_name": "AVD_FABRIC",
+        "l3leaf_underlay_uplink_ipv4_pool": "172.31.255.0/24",
+        "spine_loopback_ipv4_pool": "192.0.255.0/25",
+        "leaf_loopback_ipv4_pool": "192.0.255.128/25",
+        "l3leaf_vtep_loopback_ipv4_pool": "192.0.254.0/24",
+        "mlag_peer_l3_ipv4_pool": "10.255.251.0/24",
+        "mlag_peer_ipv4_pool": "10.255.252.0/24",
+        "spine_bgp_asn": 65001,
+        "leaf_as_range": "65101-65132",
+        "bgp_peering_password": "AQQvKeimxJu+uGQ/yYvv9w==",
+        "virtual_router_mac_address": "00:1c:73:00:dc:01",
+        "l3leaf_stp_priority": 4096,
+        "l3leaf_stp_mode": "mstp",
+        "underlay_p2p_link_mtu": 1500,
+        "local_users": {
+            "ansible_local": {
+                "privilege": 15,
+                "role": "network-admin",
+                "sha512_password": "$6$Dzu11L7yp9j3nCM9$FSptxMPyIL555OMO.ldnjDXgwZmrfMYwHSr0uznE5Qoqvd9a6UdjiFcJUhGLtvXVZR1r.A/iF5aAt50hf/EK4/"
+            }
+        },
+        "vxlan_vlan_aware_bundles": true
+    },
+    "repository_name": "my_lab_avd",
+    "fabric_name": "AVD_FABRIC",
+    "inventory_name": "my_lab_avd-inventory",
+    "all_switches_group": "MY_LAB_AVD",
+    "server_group_name": "AVD_FABRIC_SERVERS",
+    "tenants_group_name": "AVD_FABRIC_TENANTS",
+    "fabric": {
+        "spine_list": [
+            {
+                "hostname": "spine1",
+                "type": "spine",
+                "management_ip": "192.168.122.10/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:01",
+                "filter_tenants": null,
+                "filter_tags": null,
+                "id": 1
+            },
+            {
+                "hostname": "spine2",
+                "type": "spine",
+                "management_ip": "192.168.122.11/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:02",
+                "filter_tenants": null,
+                "filter_tags": null,
+                "id": 2
+            },
+            {
+                "hostname": "spine3",
+                "type": "spine",
+                "management_ip": "192.168.122.15/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:07",
+                "filter_tenants": null,
+                "filter_tags": null,
+                "id": 3
+            }
+        ],
+        "l3leaf_list": [
+            {
+                "hostname": "leaf1",
+                "type": "l3leaf",
+                "management_ip": "192.168.122.12/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:03",
+                "filter_tenants": null,
+                "filter_tags": null,
+                "id": 1,
+                "spines": [
+                    "spine1",
+                    "spine2",
+                    "spine3"
+                ],
+                "uplink_to_spine_interfaces": [
+                    "Ethernet2",
+                    "Ethernet3",
+                    "Ethernet4"
+                ],
+                "spine_interfaces": [
+                    "Ethernet2",
+                    "Ethernet2",
+                    "Ethernet6"
+                ],
+                "mlag_interfaces": [
+                    "Ethernet1"
+                ]
+            },
+            {
+                "hostname": "leaf2",
+                "type": "l3leaf",
+                "management_ip": "192.168.122.13/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:04",
+                "filter_tenants": null,
+                "filter_tags": null,
+                "id": 2,
+                "spines": [
+                    "spine1",
+                    "spine2",
+                    "spine3"
+                ],
+                "uplink_to_spine_interfaces": [
+                    "Ethernet2",
+                    "Ethernet3",
+                    "Ethernet4"
+                ],
+                "spine_interfaces": [
+                    "Ethernet3",
+                    "Ethernet3",
+                    "Ethernet7"
+                ],
+                "mlag_interfaces": [
+                    "Ethernet1"
+                ]
+            },
+            {
+                "hostname": "leaf3",
+                "type": "l3leaf",
+                "management_ip": "192.168.122.14/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:05",
+                "filter_tenants": null,
+                "filter_tags": null,
+                "id": 3,
+                "spines": [
+                    "spine1",
+                    "spine2",
+                    "spine3"
+                ],
+                "uplink_to_spine_interfaces": [
+                    "Ethernet2",
+                    "Ethernet3",
+                    "Ethernet4"
+                ],
+                "spine_interfaces": [
+                    "Ethernet4",
+                    "Ethernet4",
+                    "Ethernet8"
+                ],
+                "mlag_interfaces": [
+                    "Ethernet1"
+                ]
+            },
+            {
+                "hostname": "leaf4",
+                "type": "l3leaf",
+                "management_ip": "192.168.122.15/24",
+                "platform": "vEOS",
+                "mac_address": "0c:1d:c0:1d:62:06",
+                "filter_tenants": null,
+                "filter_tags": null,
+                "id": 4,
+                "spines": [
+                    "spine1",
+                    "spine2"
+                ],
+                "uplink_to_spine_interfaces": [
+                    "Ethernet2",
+                    "Ethernet3"
+                ],
+                "spine_interfaces": [
+                    "Ethernet5",
+                    "Ethernet5"
+                ],
+                "mlag_interfaces": [
+                    "Ethernet1"
+                ]
+            }
+        ],
+        "pod_list": [
+            {
+                "name": "pod0",
+                "asn": 65101,
+                "leafs": [
+                    {
+                        "hostname": "leaf1",
+                        "type": "l3leaf",
+                        "management_ip": "192.168.122.12/24",
+                        "platform": "vEOS",
+                        "mac_address": "0c:1d:c0:1d:62:03",
+                        "filter_tenants": null,
+                        "filter_tags": null,
+                        "id": 1,
+                        "spines": [
+                            "spine1",
+                            "spine2",
+                            "spine3"
+                        ],
+                        "uplink_to_spine_interfaces": [
+                            "Ethernet2",
+                            "Ethernet3",
+                            "Ethernet4"
+                        ],
+                        "spine_interfaces": [
+                            "Ethernet2",
+                            "Ethernet2",
+                            "Ethernet6"
+                        ],
+                        "mlag_interfaces": [
+                            "Ethernet1"
+                        ]
+                    },
+                    {
+                        "hostname": "leaf2",
+                        "type": "l3leaf",
+                        "management_ip": "192.168.122.13/24",
+                        "platform": "vEOS",
+                        "mac_address": "0c:1d:c0:1d:62:04",
+                        "filter_tenants": null,
+                        "filter_tags": null,
+                        "id": 2,
+                        "spines": [
+                            "spine1",
+                            "spine2",
+                            "spine3"
+                        ],
+                        "uplink_to_spine_interfaces": [
+                            "Ethernet2",
+                            "Ethernet3",
+                            "Ethernet4"
+                        ],
+                        "spine_interfaces": [
+                            "Ethernet3",
+                            "Ethernet3",
+                            "Ethernet7"
+                        ],
+                        "mlag_interfaces": [
+                            "Ethernet1"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "pod1",
+                "asn": 65102,
+                "leafs": [
+                    {
+                        "hostname": "leaf3",
+                        "type": "l3leaf",
+                        "management_ip": "192.168.122.14/24",
+                        "platform": "vEOS",
+                        "mac_address": "0c:1d:c0:1d:62:05",
+                        "filter_tenants": null,
+                        "filter_tags": null,
+                        "id": 3,
+                        "spines": [
+                            "spine1",
+                            "spine2",
+                            "spine3"
+                        ],
+                        "uplink_to_spine_interfaces": [
+                            "Ethernet2",
+                            "Ethernet3",
+                            "Ethernet4"
+                        ],
+                        "spine_interfaces": [
+                            "Ethernet4",
+                            "Ethernet4",
+                            "Ethernet8"
+                        ],
+                        "mlag_interfaces": [
+                            "Ethernet1"
+                        ]
+                    },
+                    {
+                        "hostname": "leaf4",
+                        "type": "l3leaf",
+                        "management_ip": "192.168.122.15/24",
+                        "platform": "vEOS",
+                        "mac_address": "0c:1d:c0:1d:62:06",
+                        "filter_tenants": null,
+                        "filter_tags": null,
+                        "id": 4,
+                        "spines": [
+                            "spine1",
+                            "spine2"
+                        ],
+                        "uplink_to_spine_interfaces": [
+                            "Ethernet2",
+                            "Ethernet3"
+                        ],
+                        "spine_interfaces": [
+                            "Ethernet5",
+                            "Ethernet5"
+                        ],
+                        "mlag_interfaces": [
+                            "Ethernet1"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "services": {
+        "servers": [
+            {
+                "name": "host2",
+                "switch_ports": [
+                    "Ethernet4",
+                    "Ethernet5",
+                    "Ethernet4",
+                    "Ethernet5"
+                ],
+                "switches": [
+                    "leaf3",
+                    "leaf3",
+                    "leaf4",
+                    "leaf4"
+                ],
+                "endpoint_ports": [
+                    "leaf3_to_host2",
+                    "leaf3_to_host2",
+                    "leaf3_to_host2",
+                    "leaf3_to_host2"
+                ],
+                "description": "leaf3_to_host2",
+                "rack": "pod2",
+                "profile": "TENANT_A",
+                "port_channel": {
+                    "mode": "active",
+                    "state": "present"
+                }
+            },
+            {
+                "name": "host1",
+                "switch_ports": [
+                    "Ethernet4",
+                    "Ethernet5",
+                    "Ethernet4",
+                    "Ethernet5"
+                ],
+                "switches": [
+                    "leaf1",
+                    "leaf1",
+                    "leaf2",
+                    "leaf2"
+                ],
+                "endpoint_ports": [
+                    "leaf1_to_host1",
+                    "leaf1_to_host1",
+                    "leaf1_to_host1",
+                    "leaf1_to_host1"
+                ],
+                "description": "leaf1_to_host1",
+                "rack": "pod1",
+                "profile": "TENANT_A",
+                "port_channel": {
+                    "mode": "active",
+                    "state": "present"
+                }
+            }
+        ],
+        "tenants": [
+            {
+                "name": "Tenant_A",
+                "vrfs": [
+                    {
+                        "name": "Tenant_A_OP_Zone",
+                        "vrf_vni": "10",
+                        "vtep_diagnostic": {
+                            "loopback": "100",
+                            "loopback_ip_range": "10.255.1.0/24"
+                        }
+                    }
+                ],
+                "l2vlans": [
+                    {
+                        "vlan_number": "160",
+                        "vlan_name": "Tenant_A_VMOTION",
+                        "tags": [
+                            "vmotion"
+                        ]
+                    }
+                ],
+                "mac_vrf_vni_base": "10000",
+                "svis": [
+                    {
+                        "vlan_number": "110",
+                        "vlan_name": "Tenant_A_OP_Zone_1",
+                        "ip_address_virtual": "10.1.10.1/24",
+                        "tags": [
+                            "opzone",
+                            "another_tag"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

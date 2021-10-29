@@ -1,0 +1,16 @@
+---
+ansible_python_interpreter: $(which python3)
+output_format:
+  - text
+  - markdown
+  - json
+  - yaml
+commands_list:
+  - show lldp neighbors
+  - show ip interface brief
+  - show interfaces description
+  - show version
+  - show running-config
+  - show ip bgp summary
+  - show bgp evpn summary
+  

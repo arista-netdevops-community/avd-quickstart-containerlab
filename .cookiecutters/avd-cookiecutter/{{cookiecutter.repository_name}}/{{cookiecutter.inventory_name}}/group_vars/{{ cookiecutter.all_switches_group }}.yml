@@ -1,0 +1,44 @@
+---
+# OOB Management network default gateway.
+mgmt_gateway: {{ cookiecutter.general.management_gateway }}
+
+# local users
+{%- if cookiecutter.general.local_users is defined %}
+local_users:
+{%-     for local_user_name, local_user_data in cookiecutter.general.local_users.items() %}
+  {{ local_user_name }}:
+    privilege: {{ local_user_data.privilege }}
+    role: {{ local_user_data.role }}
+    sha512_password: "{{ local_user_data.sha512_password }}"
+{%-     endfor %}
+{%- endif %}
+
+# Cloud Vision server
+{%- if cookiecutter.general.cvp_instance_ips is defined %}
+cvp_instance_ips:
+{%-     for cvp_instance_ip in cookiecutter.general.cvp_instance_ips %}
+  - {{ cvp_instance_ip }}
+{%-     endfor %}
+cvp_ingestauth_key: {{ cookiecutter.general.cvp_ingest_key }}
+{%- endif %}
+
+# dns servers
+{%- if cookiecutter.general.dns_server_list is defined %}
+name_servers:
+{%-     for name_server in cookiecutter.general.dns_server_list %}
+ - {{ name_server }}
+{%-     endfor %}
+{%- endif %}
+
+# NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Managment
+{%- if cookiecutter.general.ntp_server_list is defined %}
+ntp_servers:
+{%-     for ntp_server in cookiecutter.general.ntp_server_list %}
+ - {{ ntp_server }}
+{%-     endfor %}
+{%- endif %}
+
+# dns domain
+{%- if cookiecutter.general.dns_domain_name is defined %}
+dns_domain: {{ cookiecutter.general.dns_domain_name }}
+{%- endif %}

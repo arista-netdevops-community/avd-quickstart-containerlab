@@ -1,0 +1,42 @@
+---
+all:
+  children:
+    cv_servers:
+      hosts:
+        CV_{{ cookiecutter.fabric_name }}:
+          ansible_host: {{ cookiecutter.general.cvp_shared_ip }}
+          ansible_user: {{ cookiecutter.general.cvp_username }}
+          ansible_password: {{ cookiecutter.general.cvp_password }}
+          ansible_python_interpreter: $(which python3)
+          ansible_httpapi_host: {{ cookiecutter.general.cvp_shared_ip }}
+          ansible_connection: httpapi
+          ansible_httpapi_use_ssl: true
+          ansible_httpapi_validate_certs: false
+          ansible_network_os: eos
+          ansible_httpapi_port: 443
+    {{ cookiecutter.all_switches_group }}:
+      vars:
+        ansible_user: ansible_local
+        ansible_ssh_pass: ansible
+      children:
+        {{ cookiecutter.fabric_name }}:
+          children:
+            SPINES:
+              hosts:
+{%- for spine in cookiecutter.fabric.spine_list %}
+                {{ spine.hostname }}:
+                  ansible_host: {{ spine.management_ip.split('/')[0] }}
+{%- endfor %}
+            LEAFS:
+              hosts:
+{%- for leaf in cookiecutter.fabric.l3leaf_list %}
+                {{ leaf.hostname }}:
+                  ansible_host: {{ leaf.management_ip.split('/')[0] }}
+{%- endfor %}
+
+        {{ cookiecutter.tenants_group_name }}:
+          children:
+            LEAFS:
+        {{ cookiecutter.server_group_name }}:
+          children:
+            LEAFS:
