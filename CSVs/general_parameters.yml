@@ -12,7 +12,7 @@ dns_domain_name: lab.net
 # NTP server list
 ntp_server_list: [ 216.239.35.0, 216.239.35.4, 216.239.35.8 ]
 # CVP ingest key, use empty string if key is not defined
-cvp_ingest_key: ''
+cvp_ingest_key: qwerty
 # CVP cluster nodes
 cvp_shared_ip: 192.168.122.241
 cvp_username: cvpadmin
