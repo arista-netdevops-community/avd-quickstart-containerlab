@@ -31,3 +31,8 @@ run: ## run docker image
 	    -e AVD_GIT_USER="$(shell git config --get user.name)" \
 		-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
 	    -v /etc/hosts:/etc/hosts $(DOCKER_NAME):latest
+
+
+.PHONY: onboard
+onboard: ## onboard devices to CVP
+	$(CURRENT_DIR)/onboard_devices_to_cvp.py
