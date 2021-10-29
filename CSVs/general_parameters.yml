@@ -43,7 +43,7 @@ mlag_peer_ipv4_pool: 10.255.252.0/24
 spine_bgp_asn: 65001
 leaf_as_range: 65101-65132
 # BGP peering password, type-7 encrypted
-bgp_peering_password: "AQQvKeimxJu+uGQ/yYvv9w=="
+bgp_peering_password: "q+VNViP5i4rVjW1cxFv2wA=="
 
 # L3leaf Defaults
 virtual_router_mac_address: 00:1c:73:00:dc:01
