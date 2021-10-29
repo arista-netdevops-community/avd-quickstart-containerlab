@@ -1,11 +1,10 @@
 ---
 - name: "Collect EOS commands from devices"
   hosts: {{cookiecutter.fabric_name}}
-  connection: local
+  connection: httpapi
   gather_facts: false
   collections:
     - arista.avd
-    - arista.cvp
   tasks:
     - name: Collect show commands and generate reports
       import_role:
