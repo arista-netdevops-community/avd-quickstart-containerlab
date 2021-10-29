@@ -5,6 +5,10 @@ mgmt_gateway: {{ cookiecutter.general.management_gateway }}
 # If ATD is running vEOS, management interface is Management1
 mgmt_interface: Management0
 
+management_security:
+  password:
+    encryption_key_common: true
+
 # local users
 {%- if cookiecutter.general.local_users is defined %}
 local_users:
