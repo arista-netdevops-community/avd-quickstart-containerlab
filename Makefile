@@ -1,6 +1,5 @@
 CURRENT_DIR = $(shell pwd)
-BRANCH ?= $(shell git symbolic-ref --short HEAD)
-PYTHON = $(shell python3 --version)
+DOCKER_NAME ?= avd-quickstart
 
 .PHONY: help
 help: ## Display help message
@@ -21,3 +20,14 @@ graph: ## Build lab graph
 .PHONY: rm
 rm: ## Remove all containerlab directories
 	sudo rm -rf clab-ATD
+
+.PHONY: build
+build: ## Build docker image
+	docker build --rm --pull -t $(DOCKER_NAME):latest -f $(CURRENT_DIR)/.devcontainer/Dockerfile .
+
+.PHONY: run
+run: ## run docker image
+	docker run --rm -it -v $(CURRENT_DIR)/:/home/avd/projects \
+	    -e AVD_GIT_USER="$(shell git config --get user.name)" \
+		-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
+	    -v /etc/hosts:/etc/hosts $(DOCKER_NAME):latest

@@ -1,0 +1,21 @@
+{
+	"name": "AVD-quickstart",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	"remoteUser": "vscode",
+	"extensions": [
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"njpwerner.autodocstring",
+		"piotrpalarz.vscode-gitignore-generator",
+		"streetsidesoftware.code-spell-checker",
+		"igorsbitnev.error-gutters",
+		"mhutchie.git-graph",
+		"donjayamanne.githistory",
+		"eamodio.gitlens",
+		"mechatroner.rainbow-csv",
+		"visualstudioexptteam.vs"
+	]
+}
