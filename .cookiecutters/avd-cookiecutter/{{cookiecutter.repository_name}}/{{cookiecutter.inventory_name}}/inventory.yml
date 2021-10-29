@@ -16,8 +16,11 @@ all:
           ansible_httpapi_port: 443
     {{ cookiecutter.all_switches_group }}:
       vars:
-        ansible_user: ansible_local
-        ansible_ssh_pass: ansible
+        ansible_user: cvpadmin
+        ansible_password: arista123
+        ansible_network_os: eos
+        ansible_become: yes
+        ansible_become_method: enable
       children:
         {{ cookiecutter.fabric_name }}:
           children:
