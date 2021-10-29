@@ -1,13 +1,13 @@
 local_switch,local_interface,remote_switch,remote_interface,notes_and_comments
-spine1,Ethernet1,leaf1,Ethernet1,,
-spine1,Ethernet2,leaf2,Ethernet1,,
-spine1,Ethernet3,leaf3,Ethernet1,,
-spine1,Ethernet4,leaf4,Ethernet1,,
-spine2,Ethernet1,leaf1,Ethernet2,,
-spine2,Ethernet2,leaf2,Ethernet2,,
-spine2,Ethernet3,leaf3,Ethernet2,,
-spine2,Ethernet4,leaf4,Ethernet2,,
-leaf1,Ethernet3,leaf2,Ethernet3,MLAG peer link,
-leaf1,Ethernet4,leaf2,Ethernet4,MLAG peer link,
-leaf3,Ethernet3,leaf4,Ethernet3,MLAG peer link,
-leaf3,Ethernet4,leaf4,Ethernet4,MLAG peer link,
+spine1,Ethernet1,leaf1,Ethernet1,
+spine1,Ethernet2,leaf2,Ethernet1,
+spine1,Ethernet3,leaf3,Ethernet1,
+spine1,Ethernet4,leaf4,Ethernet1,
+spine2,Ethernet1,leaf1,Ethernet2,
+spine2,Ethernet2,leaf2,Ethernet2,
+spine2,Ethernet3,leaf3,Ethernet2,
+spine2,Ethernet4,leaf4,Ethernet2,
+leaf1,Ethernet3,leaf2,Ethernet3,MLAG peer link
+leaf1,Ethernet4,leaf2,Ethernet4,MLAG peer link
+leaf3,Ethernet3,leaf4,Ethernet3,MLAG peer link
+leaf3,Ethernet4,leaf4,Ethernet4,MLAG peer link
