@@ -1,0 +1,57 @@
+---
+all:
+  children:
+    cv_servers:
+      hosts:
+        CV_AVD_FABRIC:
+          ansible_host: 192.168.122.241
+          ansible_user: cvpadmin
+          ansible_password: arista123
+          ansible_python_interpreter: $(which python3)
+          ansible_httpapi_host: 192.168.122.241
+          ansible_connection: httpapi
+          ansible_httpapi_use_ssl: true
+          ansible_httpapi_validate_certs: false
+          ansible_network_os: eos
+          ansible_httpapi_port: 443
+    AVD_QUICKSTART_INVENTORY:
+      
+      children:
+        AVD_FABRIC:
+
+          vars:
+            ansible_connection: httpapi
+            ansible_network_os: eos
+            ansible_user: cvpadmin
+            ansible_password: arista123
+            ansible_network_os: eos
+            ansible_become: yes
+            ansible_become_method: enable
+            validation_mode_loose: true
+            ansible_httpapi_use_ssl: true
+            ansible_httpapi_validate_certs: false
+
+          children:
+            SPINES:
+              hosts:
+                spine1:
+                  ansible_host: 192.168.123.11
+                spine2:
+                  ansible_host: 192.168.123.12
+            LEAFS:
+              hosts:
+                leaf1:
+                  ansible_host: 192.168.123.21
+                leaf2:
+                  ansible_host: 192.168.123.22
+                leaf3:
+                  ansible_host: 192.168.123.23
+                leaf4:
+                  ansible_host: 192.168.123.24
+
+        AVD_FABRIC_TENANTS:
+          children:
+            LEAFS:
+        AVD_FABRIC_SERVERS:
+          children:
+            LEAFS:

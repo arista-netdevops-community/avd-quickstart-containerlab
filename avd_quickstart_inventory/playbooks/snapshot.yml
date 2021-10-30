@@ -1,0 +1,11 @@
+---
+- name: "Collect EOS commands from devices"
+  hosts: AVD_FABRIC
+  connection: httpapi
+  gather_facts: false
+  collections:
+    - arista.avd
+  tasks:
+    - name: Collect show commands and generate reports
+      import_role:
+        name: arista.avd.eos_snapshot

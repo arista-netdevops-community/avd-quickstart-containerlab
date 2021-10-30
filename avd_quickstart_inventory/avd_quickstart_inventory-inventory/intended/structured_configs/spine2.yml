@@ -1,0 +1,177 @@
+router_bgp:
+  as: '65001'
+  router_id: 192.0.255.2
+  bgp_defaults:
+  - maximum-paths 4 ecmp 4
+  peer_groups:
+    IPv4-UNDERLAY-PEERS:
+      type: ipv4
+      password: $1c$caHDPKDBzOjl6ZrDQLicDQ==
+      maximum_routes: 12000
+      send_community: all
+    EVPN-OVERLAY-PEERS:
+      type: evpn
+      update_source: Loopback0
+      bfd: true
+      ebgp_multihop: '3'
+      password: $1c$caHDPKDBzOjl6ZrDQLicDQ==
+      send_community: all
+      maximum_routes: 0
+      next_hop_unchanged: true
+  address_family_ipv4:
+    peer_groups:
+      IPv4-UNDERLAY-PEERS:
+        activate: true
+      EVPN-OVERLAY-PEERS:
+        activate: false
+  redistribute_routes:
+    connected:
+      route_map: RM-CONN-2-BGP
+  neighbors:
+    172.31.255.3:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65101'
+      description: leaf1_Ethernet2
+    172.31.255.7:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65101'
+      description: leaf2_Ethernet2
+    172.31.255.11:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65102'
+      description: leaf3_Ethernet2
+    172.31.255.15:
+      peer_group: IPv4-UNDERLAY-PEERS
+      remote_as: '65102'
+      description: leaf4_Ethernet2
+    192.0.255.129:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: leaf1
+      remote_as: '65101'
+    192.0.255.130:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: leaf2
+      remote_as: '65101'
+    192.0.255.131:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: leaf3
+      remote_as: '65102'
+    192.0.255.132:
+      peer_group: EVPN-OVERLAY-PEERS
+      description: leaf4
+      remote_as: '65102'
+  address_family_evpn:
+    peer_groups:
+      EVPN-OVERLAY-PEERS:
+        activate: true
+static_routes:
+- vrf: MGMT
+  destination_address_prefix: 0.0.0.0/0
+  gateway: 192.168.123.1
+service_routing_protocols_model: multi-agent
+ip_routing: true
+daemon_terminattr:
+  cvaddrs:
+  - 192.168.122.241:9910
+  cvauth:
+    method: key
+    key: qwerty
+  cvvrf: MGMT
+  smashexcludes: ale,flexCounter,hardware,kni,pulse,strata
+  ingestexclude: /Sysdb/cell/1/agent,/Sysdb/cell/2/agent
+  disable_aaa: false
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 1006
+    ending: 1199
+name_server:
+  source:
+    vrf: MGMT
+  nodes:
+  - 8.8.8.8
+spanning_tree:
+  mode: none
+local_users:
+  ansible_local:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$Dzu11L7yp9j3nCM9$FSptxMPyIL555OMO.ldnjDXgwZmrfMYwHSr0uznE5Qoqvd9a6UdjiFcJUhGLtvXVZR1r.A/iF5aAt50hf/EK4/
+  cvpadmin:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$aQjjIocu2Pxl0baz$.3hUsqFqET6CHtNoc2nKIrmwPY39NYBaG.l2dX1hmiUc46lWorrG7V25b5XeqwSCJnRs4pOe9teK1/5RK8mve/
+vrfs:
+  MGMT:
+    ip_routing: false
+management_interfaces:
+  Management0:
+    description: oob_management
+    shutdown: false
+    vrf: MGMT
+    ip_address: 192.168.123.12/24
+    gateway: 192.168.123.1
+    type: oob
+management_api_http:
+  enable_vrfs:
+    MGMT: {}
+  enable_https: true
+ethernet_interfaces:
+  Ethernet1:
+    peer: leaf1
+    peer_interface: Ethernet2
+    peer_type: l3leaf
+    description: P2P_LINK_TO_LEAF1_Ethernet2
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 172.31.255.2/31
+  Ethernet2:
+    peer: leaf2
+    peer_interface: Ethernet2
+    peer_type: l3leaf
+    description: P2P_LINK_TO_LEAF2_Ethernet2
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 172.31.255.6/31
+  Ethernet3:
+    peer: leaf3
+    peer_interface: Ethernet2
+    peer_type: l3leaf
+    description: P2P_LINK_TO_LEAF3_Ethernet2
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 172.31.255.10/31
+  Ethernet4:
+    peer: leaf4
+    peer_interface: Ethernet2
+    peer_type: l3leaf
+    description: P2P_LINK_TO_LEAF4_Ethernet2
+    mtu: 1500
+    type: routed
+    shutdown: false
+    ip_address: 172.31.255.14/31
+loopback_interfaces:
+  Loopback0:
+    description: EVPN_Overlay_Peering
+    shutdown: false
+    ip_address: 192.0.255.2/32
+prefix_lists:
+  PL-LOOPBACKS-EVPN-OVERLAY:
+    sequence_numbers:
+      10:
+        action: permit 192.0.255.0/25 eq 32
+route_maps:
+  RM-CONN-2-BGP:
+    sequence_numbers:
+      10:
+        type: permit
+        match:
+        - ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
+router_bfd:
+  multihop:
+    interval: 300
+    min_rx: 300
+    multiplier: 3

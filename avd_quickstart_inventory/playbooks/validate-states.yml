@@ -1,0 +1,9 @@
+---
+- name: "Run Fabric states validation"
+  hosts: AVD_FABRIC
+
+  tasks:
+
+    - name: deploy configuration to device
+      import_role:
+         name: arista.avd.eos_validate_state

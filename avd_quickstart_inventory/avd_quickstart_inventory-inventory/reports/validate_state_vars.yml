@@ -1,0 +1,5 @@
+loopback0_reachability:
+  loopback0_range: ['192.0.255.129', '192.0.255.130', '192.0.255.131', '192.0.255.132']
+
+loopback1_reachability:
+  loopback1_range: ['192.0.254.1', '192.0.254.3']
