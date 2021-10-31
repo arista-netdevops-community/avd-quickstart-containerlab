@@ -27,7 +27,7 @@ build: ## Build docker image
 
 .PHONY: run
 run: ## run docker image
-	docker run --rm -it -v $(CURRENT_DIR)/:/home/avd/projects \
+	docker run --network custom_mgmt --rm -it -v $(CURRENT_DIR)/:/home/avd/projects \
 	    -e AVD_GIT_USER="$(shell git config --get user.name)" \
 		-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
 	    -v /etc/hosts:/etc/hosts $(DOCKER_NAME):latest

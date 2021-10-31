@@ -1,0 +1,1617 @@
+devices:
+  leaf1:
+    "show lldp neighbors":
+      'Last table change time   : 1 day, 5:27:04 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet1           120
+
+        Et2           spine2.lab.net           Ethernet1           120
+
+        Et3           leaf2.lab.net            Ethernet3           120
+
+        Et4           leaf2.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet1           120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show ip interface brief":
+      'Last table change time   : 1 day, 5:27:04 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet1           120
+
+        Et2           spine2.lab.net           Ethernet1           120
+
+        Et3           leaf2.lab.net            Ethernet3           120
+
+        Et4           leaf2.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet1           120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show interfaces description":
+      'Last table change time   : 1 day, 5:27:04 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet1           120
+
+        Et2           spine2.lab.net           Ethernet1           120
+
+        Et3           leaf2.lab.net            Ethernet3           120
+
+        Et4           leaf2.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet1           120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show version":
+      'Last table change time   : 1 day, 5:27:04 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet1           120
+
+        Et2           spine2.lab.net           Ethernet1           120
+
+        Et3           leaf2.lab.net            Ethernet3           120
+
+        Et4           leaf2.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet1           120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show running-config":
+      'Last table change time   : 1 day, 5:27:04 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet1           120
+
+        Et2           spine2.lab.net           Ethernet1           120
+
+        Et3           leaf2.lab.net            Ethernet3           120
+
+        Et4           leaf2.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet1           120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show ip bgp summary":
+      'Last table change time   : 1 day, 5:27:04 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet1           120
+
+        Et2           spine2.lab.net           Ethernet1           120
+
+        Et3           leaf2.lab.net            Ethernet3           120
+
+        Et4           leaf2.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet1           120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show bgp evpn summary":
+      'Last table change time   : 1 day, 5:27:04 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet1           120
+
+        Et2           spine2.lab.net           Ethernet1           120
+
+        Et3           leaf2.lab.net            Ethernet3           120
+
+        Et4           leaf2.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet1           120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+  leaf2:
+    "show lldp neighbors":
+      'Last table change time   : 1 day, 5:27:03 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet2           120
+
+        Et2           spine2.lab.net           Ethernet2           120
+
+        Et3           leaf1.lab.net            Ethernet3           120
+
+        Et4           leaf1.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show ip interface brief":
+      'Last table change time   : 1 day, 5:27:03 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet2           120
+
+        Et2           spine2.lab.net           Ethernet2           120
+
+        Et3           leaf1.lab.net            Ethernet3           120
+
+        Et4           leaf1.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show interfaces description":
+      'Last table change time   : 1 day, 5:27:03 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet2           120
+
+        Et2           spine2.lab.net           Ethernet2           120
+
+        Et3           leaf1.lab.net            Ethernet3           120
+
+        Et4           leaf1.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show version":
+      'Last table change time   : 1 day, 5:27:03 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet2           120
+
+        Et2           spine2.lab.net           Ethernet2           120
+
+        Et3           leaf1.lab.net            Ethernet3           120
+
+        Et4           leaf1.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show running-config":
+      'Last table change time   : 1 day, 5:27:03 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet2           120
+
+        Et2           spine2.lab.net           Ethernet2           120
+
+        Et3           leaf1.lab.net            Ethernet3           120
+
+        Et4           leaf1.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show ip bgp summary":
+      'Last table change time   : 1 day, 5:27:03 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet2           120
+
+        Et2           spine2.lab.net           Ethernet2           120
+
+        Et3           leaf1.lab.net            Ethernet3           120
+
+        Et4           leaf1.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show bgp evpn summary":
+      'Last table change time   : 1 day, 5:27:03 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet2           120
+
+        Et2           spine2.lab.net           Ethernet2           120
+
+        Et3           leaf1.lab.net            Ethernet3           120
+
+        Et4           leaf1.lab.net            Ethernet4           120
+
+        Et5           host1                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+  leaf3:
+    "show lldp neighbors":
+      'Last table change time   : 1 day, 5:27:02 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet3           120
+
+        Et2           spine2.lab.net           Ethernet3           120
+
+        Et3           leaf4.lab.net            Ethernet3           120
+
+        Et4           leaf4.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show ip interface brief":
+      'Last table change time   : 1 day, 5:27:02 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet3           120
+
+        Et2           spine2.lab.net           Ethernet3           120
+
+        Et3           leaf4.lab.net            Ethernet3           120
+
+        Et4           leaf4.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show interfaces description":
+      'Last table change time   : 1 day, 5:27:02 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet3           120
+
+        Et2           spine2.lab.net           Ethernet3           120
+
+        Et3           leaf4.lab.net            Ethernet3           120
+
+        Et4           leaf4.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show version":
+      'Last table change time   : 1 day, 5:27:02 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet3           120
+
+        Et2           spine2.lab.net           Ethernet3           120
+
+        Et3           leaf4.lab.net            Ethernet3           120
+
+        Et4           leaf4.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show running-config":
+      'Last table change time   : 1 day, 5:27:02 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet3           120
+
+        Et2           spine2.lab.net           Ethernet3           120
+
+        Et3           leaf4.lab.net            Ethernet3           120
+
+        Et4           leaf4.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show ip bgp summary":
+      'Last table change time   : 1 day, 5:27:02 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet3           120
+
+        Et2           spine2.lab.net           Ethernet3           120
+
+        Et3           leaf4.lab.net            Ethernet3           120
+
+        Et4           leaf4.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show bgp evpn summary":
+      'Last table change time   : 1 day, 5:27:02 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet3           120
+
+        Et2           spine2.lab.net           Ethernet3           120
+
+        Et3           leaf4.lab.net            Ethernet3           120
+
+        Et4           leaf4.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+  leaf4:
+    "show lldp neighbors":
+      'Last table change time   : 1 day, 5:27:13 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet4           120
+
+        Et2           spine2.lab.net           Ethernet4           120
+
+        Et3           leaf3.lab.net            Ethernet3           120
+
+        Et4           leaf3.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show ip interface brief":
+      'Last table change time   : 1 day, 5:27:13 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet4           120
+
+        Et2           spine2.lab.net           Ethernet4           120
+
+        Et3           leaf3.lab.net            Ethernet3           120
+
+        Et4           leaf3.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show interfaces description":
+      'Last table change time   : 1 day, 5:27:13 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet4           120
+
+        Et2           spine2.lab.net           Ethernet4           120
+
+        Et3           leaf3.lab.net            Ethernet3           120
+
+        Et4           leaf3.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show version":
+      'Last table change time   : 1 day, 5:27:13 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet4           120
+
+        Et2           spine2.lab.net           Ethernet4           120
+
+        Et3           leaf3.lab.net            Ethernet3           120
+
+        Et4           leaf3.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show running-config":
+      'Last table change time   : 1 day, 5:27:13 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet4           120
+
+        Et2           spine2.lab.net           Ethernet4           120
+
+        Et3           leaf3.lab.net            Ethernet3           120
+
+        Et4           leaf3.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show ip bgp summary":
+      'Last table change time   : 1 day, 5:27:13 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet4           120
+
+        Et2           spine2.lab.net           Ethernet4           120
+
+        Et3           leaf3.lab.net            Ethernet3           120
+
+        Et4           leaf3.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show bgp evpn summary":
+      'Last table change time   : 1 day, 5:27:13 ago
+
+        Number of table inserts  : 13
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           spine1.lab.net           Ethernet4           120
+
+        Et2           spine2.lab.net           Ethernet4           120
+
+        Et3           leaf3.lab.net            Ethernet3           120
+
+        Et4           leaf3.lab.net            Ethernet4           120
+
+        Et5           host2                    Ethernet2           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+  spine1:
+    "show lldp neighbors":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 11
+
+        Number of table deletes  : 0
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 0
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet1           120
+
+        Et2           leaf2.lab.net            Ethernet1           120
+
+        Et3           leaf3.lab.net            Ethernet1           120
+
+        Et4           leaf4.lab.net            Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120'
+    "show ip interface brief":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 11
+
+        Number of table deletes  : 0
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 0
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet1           120
+
+        Et2           leaf2.lab.net            Ethernet1           120
+
+        Et3           leaf3.lab.net            Ethernet1           120
+
+        Et4           leaf4.lab.net            Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120'
+    "show interfaces description":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 11
+
+        Number of table deletes  : 0
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 0
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet1           120
+
+        Et2           leaf2.lab.net            Ethernet1           120
+
+        Et3           leaf3.lab.net            Ethernet1           120
+
+        Et4           leaf4.lab.net            Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120'
+    "show version":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 11
+
+        Number of table deletes  : 0
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 0
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet1           120
+
+        Et2           leaf2.lab.net            Ethernet1           120
+
+        Et3           leaf3.lab.net            Ethernet1           120
+
+        Et4           leaf4.lab.net            Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120'
+    "show running-config":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 11
+
+        Number of table deletes  : 0
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 0
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet1           120
+
+        Et2           leaf2.lab.net            Ethernet1           120
+
+        Et3           leaf3.lab.net            Ethernet1           120
+
+        Et4           leaf4.lab.net            Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120'
+    "show ip bgp summary":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 11
+
+        Number of table deletes  : 0
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 0
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet1           120
+
+        Et2           leaf2.lab.net            Ethernet1           120
+
+        Et3           leaf3.lab.net            Ethernet1           120
+
+        Et4           leaf4.lab.net            Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120'
+    "show bgp evpn summary":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 11
+
+        Number of table deletes  : 0
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 0
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet1           120
+
+        Et2           leaf2.lab.net            Ethernet1           120
+
+        Et3           leaf3.lab.net            Ethernet1           120
+
+        Et4           leaf4.lab.net            Ethernet1           120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           spine2.lab.net           Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120'
+  spine2:
+    "show lldp neighbors":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 12
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet2           120
+
+        Et2           leaf2.lab.net            Ethernet2           120
+
+        Et3           leaf3.lab.net            Ethernet2           120
+
+        Et4           leaf4.lab.net            Ethernet2           120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show ip interface brief":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 12
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet2           120
+
+        Et2           leaf2.lab.net            Ethernet2           120
+
+        Et3           leaf3.lab.net            Ethernet2           120
+
+        Et4           leaf4.lab.net            Ethernet2           120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show interfaces description":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 12
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet2           120
+
+        Et2           leaf2.lab.net            Ethernet2           120
+
+        Et3           leaf3.lab.net            Ethernet2           120
+
+        Et4           leaf4.lab.net            Ethernet2           120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show version":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 12
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet2           120
+
+        Et2           leaf2.lab.net            Ethernet2           120
+
+        Et3           leaf3.lab.net            Ethernet2           120
+
+        Et4           leaf4.lab.net            Ethernet2           120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show running-config":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 12
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet2           120
+
+        Et2           leaf2.lab.net            Ethernet2           120
+
+        Et3           leaf3.lab.net            Ethernet2           120
+
+        Et4           leaf4.lab.net            Ethernet2           120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show ip bgp summary":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 12
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet2           120
+
+        Et2           leaf2.lab.net            Ethernet2           120
+
+        Et3           leaf3.lab.net            Ethernet2           120
+
+        Et4           leaf4.lab.net            Ethernet2           120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'
+    "show bgp evpn summary":
+      'Last table change time   : 1 day, 5:27:05 ago
+
+        Number of table inserts  : 12
+
+        Number of table deletes  : 1
+
+        Number of table drops    : 0
+
+        Number of table age-outs : 1
+
+
+        Port          Neighbor Device ID       Neighbor Port ID    TTL
+
+        ---------- ------------------------ ---------------------- ---
+
+        Et1           leaf1.lab.net            Ethernet2           120
+
+        Et2           leaf2.lab.net            Ethernet2           120
+
+        Et3           leaf3.lab.net            Ethernet2           120
+
+        Et4           leaf4.lab.net            Ethernet2           120
+
+        Ma0           leaf4.lab.net            Management0         120
+
+        Ma0           host1                    Management0         120
+
+        Ma0           leaf3.lab.net            Management0         120
+
+        Ma0           leaf1.lab.net            Management0         120
+
+        Ma0           leaf2.lab.net            Management0         120
+
+        Ma0           host2                    Management0         120
+
+        Ma0           spine1.lab.net           Management0         120'

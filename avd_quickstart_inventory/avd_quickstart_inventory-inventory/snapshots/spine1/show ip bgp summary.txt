@@ -1,0 +1,8 @@
+BGP summary information for VRF default
+Router identifier 192.0.255.1, local AS number 65001
+Neighbor Status Codes: m - Under maintenance
+  Description              Neighbor         V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
+  leaf1_Ethernet1          172.31.255.1     4 65101           2079      2084    0    0    1d05h Estab   3      3
+  leaf2_Ethernet1          172.31.255.5     4 65101           2074      2068    0    0    1d05h Estab   3      3
+  leaf3_Ethernet1          172.31.255.9     4 65102           2081      2082    0    0    1d05h Estab   3      3
+  leaf4_Ethernet1          172.31.255.13    4 65102           2084      2088    0    0    1d05h Estab   3      3

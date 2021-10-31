@@ -1,0 +1,17 @@
+---
+- name: Test EOS command module
+  hosts: leaf1
+
+  tasks:
+
+    - name: test EOS command module
+      arista.eos.eos_command:
+        commands: show version
+        retries: 1
+        provider:
+          username: cvpadmin
+          password: arista123
+          timeout: 3
+          
+          host: 192.168.123.21
+          validate_certs: no
