@@ -39,9 +39,13 @@ name_servers:
 
 # NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Managment
 {%- if cookiecutter.general.ntp_server_list is defined %}
-ntp_servers:
+ntp:
+  local_interface:
+    name: Management0
+    vrf: MGMT
+  servers:
 {%-     for ntp_server in cookiecutter.general.ntp_server_list %}
- - {{ ntp_server }}
+  - name: {{ ntp_server }}
 {%-     endfor %}
 {%- endif %}
 

@@ -6,6 +6,7 @@
   - [Management Interfaces](#management-interfaces)
   - [DNS Domain](#dns-domain)
   - [Name Servers](#name-servers)
+  - [NTP](#ntp)
   - [Management API HTTP](#management-api-http)
 - [Authentication](#authentication)
   - [Local Users](#local-users)
@@ -109,6 +110,34 @@ dns domain lab.net
 
 ```eos
 ip name-server vrf MGMT 8.8.8.8
+```
+
+## NTP
+
+### NTP Summary
+
+#### NTP Local Interface
+
+| Interface | VRF |
+| --------- | --- |
+| Management0 | MGMT |
+
+#### NTP Servers
+
+| Server | VRF | Preferred | Burst | iBurst | Version | Min Poll | Max Poll | Local-interface | Key |
+| ------ | --- | --------- | ----- | ------ | ------- | -------- | -------- | --------------- | --- |
+| time1.google.com | - | - | - | - | - | - | - | - | - |
+| time2.google.com | - | - | - | - | - | - | - | - | - |
+| time3.google.com | - | - | - | - | - | - | - | - | - |
+
+### NTP Device Configuration
+
+```eos
+!
+ntp local-interface vrf MGMT Management0
+ntp server time1.google.com
+ntp server time2.google.com
+ntp server time3.google.com
 ```
 
 ## Management API HTTP

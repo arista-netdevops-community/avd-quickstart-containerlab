@@ -30,6 +30,14 @@ name_servers:
  - 8.8.8.8
 
 # NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Managment
+ntp:
+  local_interface:
+    name: Management0
+    vrf: MGMT
+  servers:
+  - name: time1.google.com
+  - name: time2.google.com
+  - name: time3.google.com
 ntp_servers:
  - time1.google.com
  - time2.google.com
