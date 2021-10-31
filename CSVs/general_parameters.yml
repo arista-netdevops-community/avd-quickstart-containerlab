@@ -10,7 +10,7 @@ dns_server_list: [ 8.8.8.8 ]
 # DNS domain name
 dns_domain_name: lab.net
 # NTP server list
-ntp_server_list: [ 216.239.35.0, 216.239.35.4, 216.239.35.8 ]
+ntp_server_list: [ 'time1.google.com', 'time2.google.com', 'time3.google.com' ]
 # CVP ingest key, use empty string if key is not defined
 cvp_ingest_key: qwerty
 # CVP cluster nodes
