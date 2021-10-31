@@ -31,9 +31,9 @@ name_servers:
 
 # NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Managment
 ntp_servers:
- - 216.239.35.0
- - 216.239.35.4
- - 216.239.35.8
+ - time1.google.com
+ - time2.google.com
+ - time3.google.com
 
 # dns domain
 dns_domain: lab.net

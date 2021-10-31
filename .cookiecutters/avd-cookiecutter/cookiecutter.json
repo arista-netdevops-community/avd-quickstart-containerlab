@@ -232,9 +232,9 @@
         ],
         "dns_domain_name": "lab.net",
         "ntp_server_list": [
-            "216.239.35.0",
-            "216.239.35.4",
-            "216.239.35.8"
+            "time1.google.com",
+            "time2.google.com",
+            "time3.google.com"
         ],
         "cvp_ingest_key": "qwerty",
         "cvp_shared_ip": "192.168.122.241",

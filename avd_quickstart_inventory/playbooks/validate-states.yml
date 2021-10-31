@@ -1,5 +1,5 @@
 ---
-- name: "Run Fabric states validation"
+- name: Run Fabric states validation
   hosts: AVD_FABRIC
 
   tasks:
