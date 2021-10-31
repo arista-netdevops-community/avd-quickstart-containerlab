@@ -520,28 +520,6 @@
     "services": {
         "servers": [
             {
-                "name": "host1",
-                "switch_ports": [
-                    "Ethernet5",
-                    "Ethernet5"
-                ],
-                "switches": [
-                    "leaf1",
-                    "leaf2"
-                ],
-                "endpoint_ports": [
-                    "leaf1_to_host1",
-                    "leaf1_to_host1"
-                ],
-                "description": "leaf1_to_host1",
-                "rack": "pod1",
-                "profile": "TENANT_A",
-                "port_channel": {
-                    "mode": "active",
-                    "state": "present"
-                }
-            },
-            {
                 "name": "host2",
                 "switch_ports": [
                     "Ethernet5",
@@ -557,6 +535,28 @@
                 ],
                 "description": "leaf3_to_host2",
                 "rack": "pod2",
+                "profile": "TENANT_A",
+                "port_channel": {
+                    "mode": "active",
+                    "state": "present"
+                }
+            },
+            {
+                "name": "host1",
+                "switch_ports": [
+                    "Ethernet5",
+                    "Ethernet5"
+                ],
+                "switches": [
+                    "leaf1",
+                    "leaf2"
+                ],
+                "endpoint_ports": [
+                    "leaf1_to_host1",
+                    "leaf1_to_host1"
+                ],
+                "description": "leaf1_to_host1",
+                "rack": "pod1",
                 "profile": "TENANT_A",
                 "port_channel": {
                     "mode": "active",

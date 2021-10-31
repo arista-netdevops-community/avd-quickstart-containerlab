@@ -20,15 +20,15 @@ all:
         AVD_FABRIC:
           vars:
             ansible_connection: httpapi
-              ansible_network_os: eos
-              ansible_user: cvpadmin
-              ansible_password: arista123
-              ansible_network_os: eos
-              ansible_become: yes
-              ansible_become_method: enable
-              validation_mode_loose: true
-              ansible_httpapi_use_ssl: true
-              ansible_httpapi_validate_certs: false
+            ansible_network_os: eos
+            ansible_user: cvpadmin
+            ansible_password: arista123
+            ansible_network_os: eos
+            ansible_become: yes
+            ansible_become_method: enable
+            validation_mode_loose: true
+            ansible_httpapi_use_ssl: true
+            ansible_httpapi_validate_certs: false
           children:
             SPINES:
               hosts:
