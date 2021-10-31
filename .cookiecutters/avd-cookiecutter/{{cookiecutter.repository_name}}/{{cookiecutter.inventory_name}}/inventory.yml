@@ -16,11 +16,16 @@ all:
           ansible_httpapi_port: 443
     {{ cookiecutter.all_switches_group }}:
       vars:
-        ansible_user: cvpadmin
-        ansible_password: arista123
-        ansible_network_os: eos
-        ansible_become: yes
-        ansible_become_method: enable
+        ansible_connection: httpapi
+          ansible_network_os: eos
+          ansible_user: cvpadmin
+          ansible_password: arista123
+          ansible_network_os: eos
+          ansible_become: yes
+          ansible_become_method: enable
+          validation_mode_loose: true
+          ansible_httpapi_use_ssl: true
+          ansible_httpapi_validate_certs: false
       children:
         {{ cookiecutter.fabric_name }}:
           children:
