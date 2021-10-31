@@ -5,20 +5,6 @@ port_profiles:
     vlans: 110
 
 servers:
-  host2:
-    rack: pod2
-    # NOTE: the server template does not support multiple adapters
-    # just create a server with a different name prefix/postfix instead
-    adapters:
-    - type: nic
-      endpoint_ports: ['leaf3_to_host2', 'leaf3_to_host2']
-      switch_ports: ['Ethernet5', 'Ethernet5']
-      switches: ['leaf3', 'leaf4']
-      profile: TENANT_A
-      port_channel:
-        description: leaf3_to_host2
-        mode: active
-        state: present
   host1:
     rack: pod1
     # NOTE: the server template does not support multiple adapters
@@ -31,5 +17,19 @@ servers:
       profile: TENANT_A
       port_channel:
         description: leaf1_to_host1
+        mode: active
+        state: present
+  host2:
+    rack: pod2
+    # NOTE: the server template does not support multiple adapters
+    # just create a server with a different name prefix/postfix instead
+    adapters:
+    - type: nic
+      endpoint_ports: ['leaf3_to_host2', 'leaf3_to_host2']
+      switch_ports: ['Ethernet5', 'Ethernet5']
+      switches: ['leaf3', 'leaf4']
+      profile: TENANT_A
+      port_channel:
+        description: leaf3_to_host2
         mode: active
         state: present

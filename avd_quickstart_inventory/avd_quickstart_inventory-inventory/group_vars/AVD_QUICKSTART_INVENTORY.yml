@@ -38,10 +38,6 @@ ntp:
   - name: time1.google.com
   - name: time2.google.com
   - name: time3.google.com
-ntp_servers:
- - time1.google.com
- - time2.google.com
- - time3.google.com
 
 # dns domain
 dns_domain: lab.net
