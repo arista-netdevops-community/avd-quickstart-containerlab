@@ -1,6 +1,0 @@
-BGP summary information for VRF default
-Router identifier 192.0.255.132, local AS number 65102
-Neighbor Status Codes: m - Under maintenance
-  Description              Neighbor         V AS           MsgRcvd   MsgSent  InQ OutQ  Up/Down State   PfxRcd PfxAcc
-  spine1                   192.0.255.1      4 65001           2114      2099    0    0    1d05h Estab   12     12
-  spine2                   192.0.255.2      4 65001           2114      2104    0    0    1d05h Estab   12     12
