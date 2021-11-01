@@ -44,7 +44,7 @@ The lab setup diagram:
 2. Change to the lab directory: `cd avd-quickstart-containerlab`
 3. Check makefile help for the list of commands available: `make help`
 
-```bash
+```zsh
 petr@nuc10i7:~/avd-quickstart-containerlab$ make help
 build                          Build docker image
 deploy                         Deploy ceos lab
