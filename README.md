@@ -36,7 +36,7 @@ To test AVD with CVP, KVM can be installed on the same host. To install KVM, che
 
 The lab setup diagram:
 
-<tbd>
+![lab diagram](media/avd_quickstart.jpeg)
 
 ## How To Use The Lab
 
