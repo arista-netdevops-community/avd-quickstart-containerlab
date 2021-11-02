@@ -46,6 +46,7 @@ ntp:
   servers:
 {%-     for ntp_server in cookiecutter.general.ntp_server_list %}
   - name: {{ ntp_server }}
+    vrf: MGMT
 {%-     endfor %}
 {%- endif %}
 
