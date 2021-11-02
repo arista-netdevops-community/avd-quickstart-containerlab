@@ -1,0 +1,9 @@
+- name: Configure DHCP Services
+  hosts: CV_SSH_FOR_DHCP_CONF
+  gather_facts: true
+
+  tasks:
+
+    - name: Configure and enable DHCP services for ZTP provisioning
+      import_role:
+          name: arista.avd.dhcp_provisioner

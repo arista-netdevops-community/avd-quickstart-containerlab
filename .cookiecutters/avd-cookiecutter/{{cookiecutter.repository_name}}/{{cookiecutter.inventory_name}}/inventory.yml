@@ -14,6 +14,27 @@ all:
           ansible_httpapi_validate_certs: false
           ansible_network_os: eos
           ansible_httpapi_port: 443
+    # dhcp_conf group is only required to demonstrate ZTP provisioning concept with DHCP
+    dhcp_conf:
+      hosts:
+        # we'll use CVP VM, but that can be any Linux DHCP server
+        CV_SSH_FOR_DHCP_CONF:
+          # in case of cluser, use 1st node. Keep in mind, DHCP on CVP is not supported in production.
+          ansible_host: {{ cookiecutter.general.cvp_instance_ips[0] }}
+          ansible_user: root
+          ansible_password: qwerty
+          ansible_httpapi_port: 443
+          ansible_python_interpreter: $(which python)
+          cv_collection: v3
+
+          ztp_network_summary: 192.168.122.0/24
+          ztp_pool_start: 192.168.122.100
+          ztp_pool_end: 192.168.122.200
+          ztp_lease_time: 300
+          fabric_group: {{ cookiecutter.fabric_name }}
+          ztp_mac_source: interface
+          ztp_mode: online
+
     {{ cookiecutter.all_switches_group }}:
 
       children:
