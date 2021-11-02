@@ -9,7 +9,6 @@
   gather_facts: false
   collections:
     - arista.avd
-    - arista.cvp
   vars:
     fabric_dir_name: "{{ '{{fabric_name}}' }}"
     execute_tasks: false
