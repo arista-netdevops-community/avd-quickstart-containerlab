@@ -30,7 +30,9 @@ The lab requires a single Linux host (Ubuntu server recommended) with [Docker](h
 It's possible to run [Containerlab on MacOS](https://containerlab.srlinux.dev/install/#mac-os), but that was not tested. Dedicated Linux machine still looks like the most feasible option.
 
 To test AVD with CVP, KVM can be installed on the same host. To install KVM, check [this guide](https://github.com/arista-netdevops-community/kvm-lab-for-network-engineers) or any other resource available on internet. Once KVM is installed, you can use one of the following repositories to install CVP:
-- ISO-based KVM installer
+- ISO-based KVM installer - currently not available on Github and distributed under NDA only. That will be fixed later.
+- [CVP KVM deployer](https://github.com/arista-netdevops-community/cvp-kvm-deployer)
+- [CVP Ansible provisioning](https://github.com/arista-netdevops-community/cvp-ansible-provisioning)
 
 > NOTE: to use CVP VM with container lab it's not required to recompile Linux core. That's only required if you plan to use vEOS on KVM for you lab setup.
 
@@ -42,7 +44,8 @@ The lab setup diagram:
 
 1. Clone this repository to your lab host: `git clone https://github.com/arista-netdevops-community/avd-quickstart-containerlab.git`
 2. Change to the lab directory: `cd avd-quickstart-containerlab`
-3. Check makefile help for the list of commands available: `make help`
+3. Before running the lab it is recommended to create a dedicated git branch for you lab experiments to keep original branch clean.
+4. Check makefile help for the list of commands available: `make help`
 
 ```zsh
 petr@nuc10i7:~/avd-quickstart-containerlab$ make help
@@ -57,4 +60,17 @@ rm                             Remove all containerlab directories
 run                            run docker image
 ```
 
-4. Create AVD container lab: `make deploy`
+4. If you don't have cEOS image on your host yet, download it from arista.com and import.
+5. Verify that `atd-quickstart.clab.yml` points to the correct image.
+6. Create AVD container lab: `make deploy`
+7. Build `avd-quickstart:latest` container image: `make build`. Skip this step if that was done earlier and image already exists.
+8. Run the container: `make run`
+9. If CVP is part of the lab, onboard cEOS devices with `make onboard` (in the container).
+10. Build AVD inventory with Cookiecutter: `make inventory` (in the container). Ideally AVD inventroy must be a different repository, but for simplicity script will generate inventory in the current directory.
+11. Change current directory to generated AVD repository (in the container): `cd avd_quickstart_inventory`
+12. Run ansible-playbook to provision the lab (in the container): `ansible-playbook playbook/fabric-deploy-eapi.yml` or `ansible-playbook playbook/fabric-deploy-cvp.yml` (if CVP VM is part of the lab). Git commit generated configuration.
+13. Run ansible-playbook to validate network state and check reports: `ansible-playbook playbook/validate-states.yml` Git commit generated files.
+14. Run ansible-playbook to execute network snapshot commands: `ansible-playbook playbook/snapshot.yml` Git commit generated files.
+
+Expeiment with changing files in `CSVs` directory, generate new inventory and repeat steps above to see the difference.
+If something goes wrong and can not be fixed any more, destroy the lab with `make destroy` and create a new one.
