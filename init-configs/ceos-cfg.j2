@@ -10,7 +10,7 @@ vrf instance MGMT
 !
 service routing protocols model multi-agent
 !
-hostname leaf3
+hostname {{ .ShortName }}
 !
 management api http-commands
    protocol https
@@ -21,7 +21,7 @@ management api http-commands
 !
 interface Management0
    vrf MGMT
-   ip address 192.168.123.23/24
+   {{ if .MgmtIPv4Address }}   ip address {{ .MgmtIPv4Address }}/{{ .MgmtIPv4PrefixLength }}{{end}}
 !
 no ip routing vrf MGMT
 !
