@@ -9,31 +9,26 @@ topology:
     ceos:
       startup-config: init-configs/ceos-cfg.j2
       image: ceos-lab:4.27.0F
+  defaults:
+    kind: ceos
   nodes:
     spine1:
-      kind: ceos
       mgmt_ipv4: 192.168.123.11
     spine2:
-      kind: ceos
       mgmt_ipv4: 192.168.123.12
     leaf1:
-      kind: ceos
       mgmt_ipv4: 192.168.123.21
+      # entrypoint: 'echo "00:1c:73:ca:fe:00" > /mnt/flash/system_mac_address'
     leaf2:
-      kind: ceos
       mgmt_ipv4: 192.168.123.22
     leaf3:
-      kind: ceos
       mgmt_ipv4: 192.168.123.23
     leaf4:
-      kind: ceos
       mgmt_ipv4: 192.168.123.24
     host1:
-      kind: ceos
       startup-config: init-configs/host1.cfg
       mgmt_ipv4: 192.168.123.31
     host2:
-      kind: ceos
       startup-config: init-configs/host2.cfg
       mgmt_ipv4: 192.168.123.32
 
