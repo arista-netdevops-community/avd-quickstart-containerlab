@@ -295,22 +295,9 @@ class Cook(Cut):
                     srv['server_name'] == a_server_name) and srv['rack_name']][0],
                 'profile': [srv['profile'] for srv in self.cookiecutter_vars['in']['servers'] if (
                     srv['server_name'] == a_server_name) and srv['profile']][0],
-                # 'port_channel_mode': [srv['port_channel_mode'] for srv in self.cookiecutter_vars['in']['servers'] if (
-                #     srv['server_name'] == a_server_name) and srv['port_channel_mode']][0]
+                'port_channel_mode': [srv['port_channel_mode'] for srv in self.cookiecutter_vars['in']['servers'] if (
+                    srv['server_name'] == a_server_name) and srv['port_channel_mode']][0]
             }
-            for srv in self.cookiecutter_vars['in']['servers']:
-                if (srv['server_name'] == a_server_name):
-                    if srv['port_channel_mode']:
-                        a_server.update({
-                            'port_channel_mode': srv['port_channel_mode']
-                        })
-                    if srv['lacp_fallback_mode']:
-                        a_server.update({
-                            'lacp_fallback_mode': srv['lacp_fallback_mode']
-                        })
-
-
-            
             id_string = a_server['server_name'] + ''.join(a_server['switch_ports']) + ''.join(
                 a_server['switches']) + a_server['rack_name']
             # get first 12 digits of the hash at a cost of increased collision
