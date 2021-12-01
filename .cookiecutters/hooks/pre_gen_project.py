@@ -1,0 +1,1 @@
+{{ cookiecutter.update({ "test": "test" }) }}
