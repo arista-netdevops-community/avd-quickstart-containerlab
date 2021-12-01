@@ -1,0 +1,2 @@
+tenant_name,tenant_mac_vrf_base_vni,ip_vrf_name,ip_vrf_vni,vrf_diagnostic_loopback_number,vrf_diagnostic_loopback_ip_range
+TENANT_A,10000,TEST_VRF,10,100,10.255.1.0/24
