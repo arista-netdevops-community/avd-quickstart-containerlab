@@ -1,0 +1,75 @@
+tenants:
+{%- for tenant in cookiecutter.out.tenants_vrfs %}
+  {{ tenant.tenant_name }}:
+    mac_vrf_vni_base: {{ tenant.mac_vrf_vni_base }}
+{%-     if tenant.vrfs is defined %}
+    vrfs:
+{%-         for vrf in tenant.vrfs %}
+      {{ vrf.ip_vrf_name }}:
+        vrf_vni: {{ vrf.ip_vrf_vni }}
+        vtep_diagnostic:
+          loopback: {{ vrf.vrf_diagnostic_loopback_number }}
+          loopback_ip_range: {{ vrf.vrf_diagnostic_loopback_ip_range }}
+{%-             if tenant.svis is defined %}
+        svis:
+          # VLAN for OSPF  will be defined using native AVD data model
+          # as it's an exception and there is no need in CSV `proxy`
+          150:
+            name: ospf
+            tags: ['ospf']
+            enabled: true
+            ip_virtual_router_addresses: [10.100.150.1]
+            nodes:
+              leaf3:
+                ip_address: 10.100.150.10/24
+              leaf4:
+                ip_address: 10.100.150.20/24
+          # add VLANs and SVIs from CSV
+{%-                 for svi in tenant.svis %}
+          {{ svi.vlan_number }}:
+            name: {{ svi.vlan_name }}
+            {% if svi.filter_tags is defined %}tags: {{ svi.filter_tags }}{% endif %}
+            enabled: true
+            ip_address_virtual: {{ svi.ip_virtual_address_and_mask }}
+            {% if svi.mtu is defined %}mtu: {{ svi.mtu }}{% endif %}
+            {% if svi.igmp_snooping_enabled is defined %}igmp_snooping_enabled: {{ svi.igmp_snooping_enabled }}{% endif %}
+{%-                 endfor %}
+{%-             endif %}
+{%-         endfor %}
+{%-     endif %}
+        l3_interfaces:
+        - interfaces: [Port-Channel11.3001, Port-Channel11.3007]
+          encapsulation_dot1q_vlan: [3001, 3007]
+          ip_addresses: [10.222.222.0/31, 10.222.222.2/31]
+          nodes: [border1, border2]
+          description: link_to_pe
+          enabled: true
+          mtu: 1500
+          structured_config:
+            vrf: TEST_VRF
+
+        bgp_peers:
+          10.222.222.1:
+            remote_as: 100
+            description: eBGP_to_PE
+            nodes: [border1]
+            local_as: 123
+            route_map_in: RM-PE1-IN
+            route_map_out: RM-PE1-OUT
+          10.222.222.3:
+            remote_as: 100
+            description: eBGP_to_PE
+            nodes: [border2]
+            local_as: 123
+            route_map_in: RM-PE1-IN
+            route_map_out: RM-PE1-OUT
+
+{%-     if tenant.l2vlans is defined %}
+    l2vlans:
+{%-         for vlan in tenant.l2vlans %}
+      {{ vlan.vlan_number }}:
+        name: {{ vlan.vlan_name }}
+        {% if vlan.filter_tags is defined %}tags: {{ vlan.filter_tags }}{% endif %}
+{%-         endfor %}
+{%-     endif %}
+{%- endfor %}

@@ -1,0 +1,34 @@
+---
+#
+# This playbook builds configs and deploys them using Ansible CVP
+# use build or deploy tags to filter actions if required
+#
+- name: Manage Arista EOS EVPN/VXLAN Configuration
+  hosts: {{ cookiecutter.in.avd_general.fabric_name }}
+  connection: local
+  gather_facts: false
+  collections:
+    - arista.avd
+  vars:
+    fabric_dir_name: "{{ '{{fabric_name}}' }}"
+    execute_tasks: false
+  tasks:
+    - name: 'reset local folders for output'
+      tags: [build, generate]
+      import_role:
+        name: arista.avd.build_output_folders
+
+    - name: generate intended variables
+      tags: [build, generate]
+      import_role:
+        name: arista.avd.eos_designs
+
+    - name: generate device intended config and documentation
+      tags: [build, generate]
+      import_role:
+        name: eos_cli_config_gen
+
+    - name: deploy configuration to devices
+      tags: [deploy]
+      import_role:
+        name: arista.avd.eos_config_deploy_eapi

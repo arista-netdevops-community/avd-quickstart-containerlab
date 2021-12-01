@@ -1,0 +1,9 @@
+---
+- name: Run Fabric states validation
+  hosts: {{ cookiecutter.in.avd_general.fabric_name }}
+
+  tasks:
+
+    - name: deploy configuration to device
+      import_role:
+         name: arista.avd.eos_validate_state

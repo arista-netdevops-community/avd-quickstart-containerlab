@@ -1,0 +1,8 @@
+---
+- name: Collect EOS commands from devices
+  hosts: {{ cookiecutter.in.avd_general.fabric_name }}
+
+  tasks:
+    - name: Collect show commands and generate reports
+      import_role:
+        name: arista.avd.eos_snapshot

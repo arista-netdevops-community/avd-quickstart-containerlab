@@ -1,0 +1,29 @@
+no aaa root
+!
+username cvpadmin privilege 15 role network-admin secret arista123
+!
+service routing protocols model multi-agent
+!
+hostname {{ .ShortName }}
+!
+management api http-commands
+   no shutdown
+!
+interface Management0
+{{ if .MgmtIPv4Address }}   ip address {{ .MgmtIPv4Address }}/{{ .MgmtIPv4PrefixLength }}{{end}}
+!
+ip route 0.0.0.0/0 192.168.123.1
+!
+interface Port-Channel1
+   no switchport
+   ip address 10.200.200.11/24
+!
+interface Ethernet1
+   no shutdown
+   channel-group 1 mode active
+!
+interface Ethernet2
+   no shutdown
+   channel-group 1 mode active
+!
+end

@@ -1,0 +1,51 @@
+no aaa root
+!
+username cvpadmin privilege 15 role network-admin secret arista123
+!
+vrf instance MGMT
+!
+service routing protocols model multi-agent
+!
+hostname {{ .ShortName }}
+!
+management api http-commands
+   protocol https
+   no shutdown
+   !
+   vrf MGMT
+      no shutdown
+!
+interface Loopback22
+   ip address 10.22.22.22/32
+!
+interface Management0
+   vrf MGMT
+   {{ if .MgmtIPv4Address }}   ip address {{ .MgmtIPv4Address }}/{{ .MgmtIPv4PrefixLength }}{{end}}
+!
+ip routing
+no ip routing vrf MGMT
+!
+ip route vrf MGMT 0.0.0.0/0 192.168.123.1
+!
+router ospf 150
+   router-id 10.22.22.22
+   redistribute connected
+   max-lsa 12000
+   log-adjacency-changes detail
+!
+interface Port-Channel1
+   no switchport
+   ip address 10.100.150.22/24
+   ip ospf authentication message-digest
+   ip ospf area 0.0.0.0
+   ip ospf message-digest-key 55 md5 7 K2+2K3oGtdkgiGQKSIjnzA==
+!
+interface Ethernet1
+   no shutdown
+   channel-group 1 mode active
+!
+interface Ethernet2
+   no shutdown
+   channel-group 1 mode active
+!
+end

@@ -1,0 +1,17 @@
+custom_structured_configuration_ethernet_interfaces:
+  Ethernet11/1:
+    peer: pe1
+    peer_interface: pe1_Ethernet1
+    peer_type: router
+    description: BGP_to_PE1
+    type: routed
+    shutdown: false
+    channel_group:
+      id: 11
+      mode: active
+
+custom_structured_configuration_port_channel_interfaces:
+  Port-Channel21:
+    description: BGP_to_PE1
+    type: routed
+    shutdown: false

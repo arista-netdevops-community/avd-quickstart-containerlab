@@ -1,0 +1,36 @@
+---
+{%- if cookiecutter.in.server_port_profiles is defined %}
+port_profiles:
+{%-     for server_port_profile in cookiecutter.in.server_port_profiles %}
+  {{ server_port_profile.profile_name }}:
+{%-         if server_port_profile.switchport_mode is defined %}
+    {% if server_port_profile.switchport_mode %}mode: {{ server_port_profile.switchport_mode }}{% endif %}
+{%-         endif %}
+{%-         if server_port_profile.vlan_string is defined %}
+    {% if server_port_profile.vlan_string %}vlans: {{ server_port_profile.vlan_string }}{% endif %}
+{%-         endif %}
+{%-     endfor %}
+{%- endif %}
+
+servers:
+    # NOTE: the server template does not support multiple adapters
+    # just create a server with a different name prefix/postfix instead
+{%- for server in cookiecutter.out.avd_servers %}
+  {{ server.server_name }}:
+    rack: {{ server.rack_name }}
+    adapters:
+    - switch_ports: {{ server.switch_ports }}
+      switches: {{ server.switches }}
+      endpoint_ports: [ {% for sw in server.switches %}{{ sw }}_{{ server.switch_ports[loop.index-1] }},{% endfor %} ]
+{%- if server.profile is defined %}
+      profile: {{ server.profile }}
+{%- endif %}
+{%-     if server.port_channel_mode is defined %}
+      port_channel:
+        description: {{ server.description }}
+        mode: {{ server.port_channel_mode }}
+{%-         if server.short_esi is defined %}
+        short_esi: {{ server.short_esi }}
+{%-         endif %}
+{%-     endif %}
+{%- endfor %}

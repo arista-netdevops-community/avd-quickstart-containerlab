@@ -1,0 +1,72 @@
+---
+all:
+  children:
+    CV_SERVERS:
+      hosts:
+        CV_{{ cookiecutter.in.avd_general.fabric_name }}:
+          ansible_host: {{ cookiecutter.in.avd_mgmt.cvp_shared_ip }}
+          ansible_user: {{ cookiecutter.in.avd_mgmt.cvp_username }}
+          ansible_password: {{ cookiecutter.in.avd_mgmt.cvp_password }}
+          ansible_python_interpreter: $(which python3)
+          ansible_httpapi_host: {{ cookiecutter.in.avd_mgmt.cvp_shared_ip }}
+          ansible_connection: httpapi
+          ansible_httpapi_use_ssl: true
+          ansible_httpapi_validate_certs: false
+          ansible_network_os: eos
+          ansible_httpapi_port: 443
+    # DHCP_CONF group is only required to demonstrate ZTP provisioning concept with DHCP
+    DHCP_CONF:
+      hosts:
+        # we'll use CVP VM, but that can be any Linux DHCP server
+        CV_SSH_FOR_DHCP_CONF:
+          # in case of cluser, use 1st node. Keep in mind, DHCP on CVP is not supported in production.
+          ansible_host: {{ cookiecutter.in.avd_mgmt.cvp_instance_ips[0] }}
+          ansible_user: root
+          ansible_password: qwerty
+          ansible_httpapi_port: 443
+          ansible_python_interpreter: $(which python)
+          cv_collection: v3
+
+          ztp_network_summary: 192.168.122.0/24
+          ztp_pool_start: 192.168.122.100
+          ztp_pool_end: 192.168.122.200
+          ztp_lease_time: 300
+          fabric_group: {{ cookiecutter.in.avd_general.fabric_name }}
+          ztp_mac_source: interface
+          ztp_mode: online
+
+    {{ cookiecutter.in.avd_general.avd_repository_name | upper }}:
+
+      children:
+        {{ cookiecutter.in.avd_general.fabric_name }}:
+          vars:
+            ansible_connection: httpapi
+            ansible_network_os: eos
+            ansible_user: {{ cookiecutter.in.avd_mgmt.cvp_username }}
+            ansible_password: {{ cookiecutter.in.avd_mgmt.cvp_password }}
+            ansible_network_os: eos
+            ansible_become: yes
+            ansible_become_method: enable
+            validation_mode_loose: true
+            ansible_httpapi_use_ssl: true
+            ansible_httpapi_validate_certs: false
+          children:
+            SPINES:
+              hosts:
+{%- for spine in cookiecutter.out.avd_spine_list %}
+                {{ spine.hostname }}:
+                  ansible_host: {{ spine.management_ip.split('/')[0] }}
+{%- endfor %}
+            LEAFS:
+              hosts:
+{%- for leaf in cookiecutter.out.avd_l3leaf_list %}
+                {{ leaf.hostname }}:
+                  ansible_host: {{ leaf.management_ip.split('/')[0] }}
+{%- endfor %}
+
+        {{ cookiecutter.in.avd_general.fabric_name }}_TENANTS:
+          children:
+            LEAFS:
+        {{ cookiecutter.in.avd_general.fabric_name }}_SERVERS:
+          children:
+            LEAFS:
