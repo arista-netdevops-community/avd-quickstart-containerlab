@@ -24,7 +24,7 @@ clab_graph: ## Build lab graph
 
 .PHONY: rm
 rm: ## Remove all containerlab directories
-	sudo rm -rf clab-ATD
+	sudo rm -rf $(AVD_REPOSITORY_NAME); sudo rm .cookiecutters/cookiecutter.json
 
 .PHONY: run
 run: ## run docker image. This requires cLab "custom_mgmt" to be present
