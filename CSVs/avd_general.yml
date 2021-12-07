@@ -1,7 +1,7 @@
 ---
 # Name of the directory where AVD repository will be located
 # There is no need to specify full path here, just directory name
-avd_repository_name: avd_test
+avd_repository_name: avd_lab
 
 # leaf-spine fabric name
 fabric_name: AVD_FABRIC
