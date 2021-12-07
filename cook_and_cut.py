@@ -223,58 +223,70 @@ class Cook(Cut):
         bgp_end_asn = int(
             self.cookiecutter_vars['in']['avd_rs']['leaf_as_range'].split('-')[-1])
         bgp_asn_list = list(range(bgp_start_asn, bgp_end_asn))
-        # build mlag or active-active
-        if 'avd_mlag_peers' in self.cookiecutter_vars['in']:
-            # build as mlag
-            pass
-        else:
-            # build as active-active or standalone
-            for a_pod_number, a_leaf in enumerate(l3leaf_list_sorted):
-                a_pod = {
-                    'name': f'pod{a_pod_number}',
-                    'asn': bgp_asn_list[a_pod_number],
-                    'leafs': [a_leaf]
-                }
-                # add filters if defined
-                if 'node_filters' in self.cookiecutter_vars['in']:
-                    tenant_filters = list()
-                    tag_filters = list()
-                    for a_node in self.cookiecutter_vars['in']['node_filters']:
-                        if a_node['hostname'] == a_leaf['hostname']:
+
+        # build pods as MLAG, active-active or standalone
+        a_pod_number = 0
+        while l3leaf_list_sorted:
+            a_leaf = l3leaf_list_sorted.pop(0)
+            a_pod = {
+                'name': f'pod{a_pod_number}',
+                'asn': bgp_asn_list[a_pod_number],
+                'leafs': [a_leaf]
+            }
+            # check if there is an MLAG peer
+            mlag_peer_leaf = dict()
+            for a_link in self.cookiecutter_vars['in']['cabling_plan']:
+                if 'MLAG' in a_link['notes_and_comments']:
+                    mlag_peer_leaf_hostname = ''
+                    if a_link['local_switch'] == a_leaf['hostname']:
+                        mlag_peer_leaf_hostname = a_link['remote_switch']
+                    if a_link['remote_switch'] == a_leaf['hostname']:
+                        mlag_peer_leaf_hostname = a_link['local_switch']
+                    if mlag_peer_leaf_hostname:
+                        for other_leaf_index, other_leaf in enumerate(l3leaf_list_sorted):
+                            if other_leaf['hostname'] == mlag_peer_leaf_hostname:
+                                mlag_peer_leaf = l3leaf_list_sorted.pop(other_leaf_index)
+            if mlag_peer_leaf:
+                a_pod['leafs'].append(mlag_peer_leaf)
+
+            # add filters if defined
+            if 'node_filters' in self.cookiecutter_vars['in']:
+                tenant_filters = list()
+                tag_filters = list()
+                always_include_vrfs_in_tenants = list()
+                for a_node in self.cookiecutter_vars['in']['node_filters']:
+                    for this_pod_leaf in a_pod['leafs']:
+                        if a_node['hostname'] == this_pod_leaf['hostname']:
                             if 'filter_tenants' in a_node.keys():
-                                tenant_filters += [a_filter.strip()
-                                                   for a_filter in a_node['filter_tenants'].split(',')]
+                                tenant_filters += [a_filter.strip() for a_filter in a_node['filter_tenants'].split(',')]
                             if 'filter_tags' in a_node.keys():
-                                tag_filters += [a_filter.strip()
-                                                for a_filter in a_node['filter_tags'].split(',')]
-                    if tenant_filters:
-                        a_pod.update({
-                            'filter_tenants': tenant_filters
-                        })
-                    if tag_filters:
-                        a_pod.update({
-                            'filter_tags': tag_filters
-                        })
-                    # add all VRFs on border routers
-                    if a_leaf['hostname'] in ['border1', 'border2']:
-                        a_pod.update(
-                            {'always_include_vrfs_in_tenants': ['all']})
-                        # if pod name is specified explicitely
+                                tag_filters += [a_filter.strip() for a_filter in a_node['filter_tags'].split(',')]
+                            if 'always_include_vrfs_in_tenants' in a_node.keys():
+                                always_include_vrfs_in_tenants += [a_filter.strip() for a_filter in a_node['always_include_vrfs_in_tenants'].split(',')]
 
-                pod_name_exists = False
-                if 'pod_name' in a_leaf.keys():
-                    if a_leaf['pod_name']:
-                        a_pod['name'] = a_leaf['pod_name']
-                        for index, processed_pod in enumerate(self.cookiecutter_vars['out']['avd_l3leaf_pod_list']):
-                            if processed_pod['name'] == a_pod['name']:
-                                pod_name_exists = True
-                                a_pod.update(processed_pod)
-                                a_pod['leafs'].append(a_leaf)
-                                self.cookiecutter_vars['out']['avd_l3leaf_pod_list'][index] = a_pod
+                if tenant_filters:
+                    a_pod.update({
+                        'filter_tenants': tenant_filters
+                    })
+                if tag_filters:
+                    a_pod.update({
+                        'filter_tags': tag_filters
+                    })
+                if always_include_vrfs_in_tenants:
+                    a_pod.update({
+                        'always_include_vrfs_in_tenants': always_include_vrfs_in_tenants
+                    })
 
-                if not pod_name_exists:
-                    self.cookiecutter_vars['out']['avd_l3leaf_pod_list'].append(
-                        a_pod)
+            # if pod name was specified expicitely
+            for this_pod_leaf in a_pod['leafs']:
+                if 'pod_name' in this_pod_leaf.keys():
+                    if this_pod_leaf['pod_name']:
+                        a_pod['name'] = this_pod_leaf['pod_name']
+
+            if a_pod['name'] in [p['name'] for p in self.cookiecutter_vars['out']['avd_l3leaf_pod_list']]:
+                sys.exit(f"ERROR: Pod name {a_pod['name']} already exists!")
+            else:
+                self.cookiecutter_vars['out']['avd_l3leaf_pod_list'].append(a_pod)
 
     def avd_servers(self):
         # build AVD server variables
