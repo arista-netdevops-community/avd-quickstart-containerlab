@@ -1,6 +1,6 @@
 # containerlab parameters
 # name of the containerlab
-name: avd_test
+name: avd_lab
 # cEOS image name:
 ceos_image: ceos-lab:4.27.0F
 # clab management parameters
