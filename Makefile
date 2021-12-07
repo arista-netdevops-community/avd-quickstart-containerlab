@@ -38,14 +38,14 @@ onboard: ## onboard devices to CVP
 	python3 $(CURRENT_DIR)/$(AVD_REPOSITORY_NAME)/onboard_devices_to_cvp.py
 
 .PHONY: inventory_evpn_aa
-inventory: ## onboard devices to CVP
+inventory_evpn_aa: ## onboard devices to CVP
 	docker run --rm -it -v $(CURRENT_DIR)/:/home/avd/projects \
 	    -e AVD_GIT_USER="$(shell git config --get user.name)" \
 		-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
 	    -v /etc/hosts:/etc/hosts $(DOCKER_NAME):latest /home/avd/projects/cook_and_cut.py --input_directory CSVs_EVPN_AA
 
 .PHONY: inventory_evpn_mlag
-inventory: ## onboard devices to CVP
+inventory_evpn_mlag: ## onboard devices to CVP
 	docker run --rm -it -v $(CURRENT_DIR)/:/home/avd/projects \
 	    -e AVD_GIT_USER="$(shell git config --get user.name)" \
 		-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
