@@ -329,18 +329,29 @@ class Cook(Cut):
                 'port_channel_mode': [srv['port_channel_mode'] for srv in self.cookiecutter_vars['in']['servers'] if (
                     srv['server_name'] == a_server_name) and srv['port_channel_mode']][0]
             }
-            id_string = a_server['server_name'] + ''.join(a_server['switch_ports']) + ''.join(
-                a_server['switches']) + a_server['rack_name']
-            # get first 12 digits of the hash at a cost of increased collision
-            short_hash = hashlib.sha256(
-                id_string.encode('utf-8')).hexdigest()[0:12]
-            if short_hash in short_hashes_in_use:
-                sys.exit(f'ERROR: hash collision for server {a_server_name}')
-            else:
-                short_hashes_in_use.append(short_hash)
-                a_server.update({
-                    'short_esi': f'{short_hash[0:4]}:{short_hash[4:8]}:{short_hash[8:12]}'
-                })
+            is_not_mlag = True
+            for switch_hostname in a_server['switches']:
+                for a_pod in self.cookiecutter_vars['out']['avd_l3leaf_pod_list']:
+                    for a_pod_leaf in a_pod['leafs']:
+                        if a_pod_leaf['hostname'] == switch_hostname:
+                            if 'mlag_interfaces' in a_pod_leaf.keys():
+                                is_not_mlag = False
+
+            # build short ESI for non-MLAG switches
+            if is_not_mlag:
+                
+                id_string = a_server['server_name'] + ''.join(a_server['switch_ports']) + ''.join(
+                    a_server['switches']) + a_server['rack_name']
+                # get first 12 digits of the hash at a cost of increased collision
+                short_hash = hashlib.sha256(
+                    id_string.encode('utf-8')).hexdigest()[0:12]
+                if short_hash in short_hashes_in_use:
+                    sys.exit(f'ERROR: hash collision for server {a_server_name}')
+                else:
+                    short_hashes_in_use.append(short_hash)
+                    a_server.update({
+                        'short_esi': f'{short_hash[0:4]}:{short_hash[4:8]}:{short_hash[8:12]}'
+                    })
 
             self.cookiecutter_vars['out']['avd_servers'].append(a_server)
 
