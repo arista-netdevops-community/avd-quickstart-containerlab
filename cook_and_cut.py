@@ -288,6 +288,8 @@ class Cook(Cut):
             else:
                 self.cookiecutter_vars['out']['avd_l3leaf_pod_list'].append(a_pod)
 
+            a_pod_number += 1
+
     def avd_servers(self):
         # build AVD server variables
         self.cookiecutter_vars['out']['avd_servers'] = list()
