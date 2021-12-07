@@ -28,10 +28,10 @@ rm: ## Remove all containerlab directories
 
 .PHONY: run
 run: ## run docker image. This requires cLab "custom_mgmt" to be present
-	docker run --network custom_mgmt --rm -it -v $(CURRENT_DIR)/:/home/avd/projects \
+	-docker run --network custom_mgmt --rm -it -v $(CURRENT_DIR)/:/home/avd/projects \
 	    -e AVD_GIT_USER="$(shell git config --get user.name)" \
 		-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
-	    -v /etc/hosts:/etc/hosts $(DOCKER_NAME):latest
+	    -v /etc/hosts:/etc/hosts $(DOCKER_NAME):latest || true
 
 .PHONY: onboard
 onboard: ## onboard devices to CVP
