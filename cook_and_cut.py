@@ -235,18 +235,35 @@ class Cook(Cut):
             }
             # check if there is an MLAG peer
             mlag_peer_leaf = dict()
+            this_leaf_peer_link_ports = list()
+            other_leaf_peer_link_ports = list()
             for a_link in self.cookiecutter_vars['in']['cabling_plan']:
                 if 'MLAG' in a_link['notes_and_comments']:
                     mlag_peer_leaf_hostname = ''
                     if a_link['local_switch'] == a_leaf['hostname']:
                         mlag_peer_leaf_hostname = a_link['remote_switch']
+                        this_leaf_peer_link_ports.append(a_link['local_interface'])
+                        other_leaf_peer_link_ports.append(a_link['remote_interface'])
                     if a_link['remote_switch'] == a_leaf['hostname']:
                         mlag_peer_leaf_hostname = a_link['local_switch']
+                        this_leaf_peer_link_ports.append(a_link['remote_interface'])
+                        other_leaf_peer_link_ports.append(a_link['local_interface'])
                     if mlag_peer_leaf_hostname:
                         for other_leaf_index, other_leaf in enumerate(l3leaf_list_sorted):
                             if other_leaf['hostname'] == mlag_peer_leaf_hostname:
                                 mlag_peer_leaf = l3leaf_list_sorted.pop(other_leaf_index)
+
+            a_leaf.update({
+                'mlag_interfaces': this_leaf_peer_link_ports
+            })
+            a_pod.update({
+                'leafs': [a_leaf]
+            })
+
             if mlag_peer_leaf:
+                mlag_peer_leaf.update({
+                    'mlag_interfaces': other_leaf_peer_link_ports
+                })
                 a_pod['leafs'].append(mlag_peer_leaf)
 
             # add filters if defined
