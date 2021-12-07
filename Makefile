@@ -49,7 +49,7 @@ inventory_evpn_mlag: ## onboard devices to CVP
 	docker run --rm -it -v $(CURRENT_DIR)/:/home/avd/projects \
 	    -e AVD_GIT_USER="$(shell git config --get user.name)" \
 		-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
-	    -v /etc/hosts:/etc/hosts $(DOCKER_NAME):latest /home/avd/projects/cook_and_cut.py --input_directory CSVs_EVPN_AA
+	    -v /etc/hosts:/etc/hosts $(DOCKER_NAME):latest /home/avd/projects/cook_and_cut.py --input_directory CSVs_EVPN_MLAG
 
 .PHONY: avd_build_eapi
 avd_build_eapi: ## build configs and configure switches via eAPI
