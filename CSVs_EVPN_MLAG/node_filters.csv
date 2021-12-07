@@ -1,0 +1,7 @@
+hostname, filter_tenants, filter_tags
+leaf1,TENANT_A,"bgp_to_compute, l2_only"
+leaf2,TENANT_A,"bgp_to_compute, l2_only"
+leaf3,TENANT_A,"l2_only, ospf"
+leaf4,TENANT_A,"l2_only, ospf"
+border1,TENANT_A,border
+border2,TENANT_A,border
