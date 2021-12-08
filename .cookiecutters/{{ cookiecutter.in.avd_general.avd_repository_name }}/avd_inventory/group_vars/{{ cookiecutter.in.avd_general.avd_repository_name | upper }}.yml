@@ -3,8 +3,8 @@
 mgmt_gateway: {{ cookiecutter.in.avd_mgmt.management_gateway }}
 # If ATD is running cEOS, management interface is Management0
 # If ATD is running vEOS, management interface is Management1
-mgmt_interface: Management0
-mgmt_interface_vrf: MGMT
+mgmt_interface: {{ cookiecutter.in.avd_mgmt.mgmt_interface }}
+mgmt_interface_vrf: {{ cookiecutter.in.avd_mgmt.mgmt_interface_vrf }}
 
 management_security:
   password:
@@ -42,12 +42,12 @@ name_servers:
 {%- if cookiecutter.in.avd_mgmt.ntp_server_list is defined %}
 ntp:
   local_interface:
-    name: Management0
-    vrf: MGMT
+    name: {{ cookiecutter.in.avd_mgmt.mgmt_interface }}
+    vrf: {{ cookiecutter.in.avd_mgmt.mgmt_interface_vrf }}
   servers:
 {%-     for ntp_server in cookiecutter.in.avd_mgmt.ntp_server_list %}
   - name: {{ ntp_server }}
-    vrf: MGMT
+    vrf: {{ cookiecutter.in.avd_mgmt.mgmt_interface_vrf }}
 {%-     endfor %}
 {%- endif %}
 
