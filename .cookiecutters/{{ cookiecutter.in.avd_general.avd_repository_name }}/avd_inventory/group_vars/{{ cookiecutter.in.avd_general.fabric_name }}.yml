@@ -94,30 +94,6 @@ l3leaf:
 {%-         if leaf.mlag_interfaces is defined %}
           mlag_interfaces: {{ leaf.mlag_interfaces }}
 {%-         endif %}
-{%-         if leaf.hostname == 'border1'  %}
-          raw_eos_cli: |
-            router bgp 65105
-               vrf TEST_VRF
-                  neighbor COMPUTE peer group
-                  neighbor COMPUTE password bgp_to_compute_$123
-                  ! add a route-map here later
-                  neighbor COMPUTE send-community
-                  neighbor COMPUTE ebgp-multihop 5
-                  neighbor COMPUTE bfd
-                  bgp listen range 10.100.0.0/16 peer-group COMPUTE remote-as 65555
-{%-         endif %}
-{%-         if leaf.hostname == 'border2'  %}
-          raw_eos_cli: |
-            router bgp 65106
-               vrf TEST_VRF
-                  neighbor COMPUTE peer group
-                  neighbor COMPUTE password bgp_to_compute_$123
-                  ! add a route-map here later
-                  neighbor COMPUTE send-community
-                  neighbor COMPUTE ebgp-multihop 5
-                  neighbor COMPUTE bfd
-                  bgp listen range 10.100.0.0/16 peer-group COMPUTE remote-as 65555
-{%-         endif %}
 {%-     endfor %}
 {%- endfor %}
 

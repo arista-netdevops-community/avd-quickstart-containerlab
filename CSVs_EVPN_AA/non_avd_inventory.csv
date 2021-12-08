@@ -1,6 +1,4 @@
 hostname, management_ip, kind, image, startup_config
-pe1, 192.168.123.41/24, ceos, ,init-configs/pe1.cfg
-pe2, 192.168.123.42/24, ceos, ,init-configs/pe2.cfg
 host11, 192.168.123.111/24,ceos, ,init-configs/host11.j2
 host12, 192.168.123.112/24,ceos, ,init-configs/host12.j2
 host21, 192.168.123.121/24,ceos, ,init-configs/host21.j2

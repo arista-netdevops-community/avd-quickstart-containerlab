@@ -2,6 +2,9 @@
 # Management parameters
 # OOB management gateway address
 management_gateway: 192.168.123.1
+# set management interface name and VRF
+mgmt_interface: Management0
+mgmt_interface_vrf: MGMT
 # DNS server list
 dns_server_list: [ 8.8.8.8 ]
 # DNS domain name
