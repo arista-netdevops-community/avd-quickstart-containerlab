@@ -97,11 +97,3 @@ You can optionally git commit the changes and start playing with the lab. Use CS
 1. Exit the `avd-quickstart` container by typing `exit`
 2. Execute `make clab_destroy` to destroy the containerlab.
 3. Execute `make rm` to delete the generated AVD inventory.
-
-
-
-
-
-
-Expeiment with changing files in `CSVs` directory, generate new inventory and repeat steps above to see the difference.
-If something goes wrong and can not be fixed any more, destroy the lab with `make destroy` and create a new one.
