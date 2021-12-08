@@ -253,9 +253,10 @@ class Cook(Cut):
                             if other_leaf['hostname'] == mlag_peer_leaf_hostname:
                                 mlag_peer_leaf = l3leaf_list_sorted.pop(other_leaf_index)
 
-            a_leaf.update({
-                'mlag_interfaces': this_leaf_peer_link_ports
-            })
+            if this_leaf_peer_link_ports:
+                a_leaf.update({
+                    'mlag_interfaces': this_leaf_peer_link_ports
+                })
             a_pod.update({
                 'leafs': [a_leaf]
             })
