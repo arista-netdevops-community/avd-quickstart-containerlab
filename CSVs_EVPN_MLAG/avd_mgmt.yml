@@ -1,0 +1,29 @@
+---
+# Management parameters
+# OOB management gateway address
+management_gateway: 192.168.123.1
+# set management interface name and VRF
+mgmt_interface: Management0
+mgmt_interface_vrf: MGMT
+# DNS server list
+dns_server_list: [ 8.8.8.8 ]
+# DNS domain name
+dns_domain_name: lab.net
+# NTP server list
+ntp_server_list: [ 'time1.google.com', 'time2.google.com', 'time3.google.com' ]
+
+# Local Users
+local_users:
+  cvpadmin:
+    privilege: 15
+    role: network-admin
+    sha512_password: "$6$aQjjIocu2Pxl0baz$.3hUsqFqET6CHtNoc2nKIrmwPY39NYBaG.l2dX1hmiUc46lWorrG7V25b5XeqwSCJnRs4pOe9teK1/5RK8mve/"
+
+# CVP Cluster or Single Node Configuration
+# CVP ingest key, use empty string if key is not defined
+cvp_ingest_key: qwerty
+# CVP cluster nodes
+cvp_shared_ip: 192.168.122.241
+cvp_username: cvpadmin
+cvp_password: arista123
+cvp_instance_ips: [ 192.168.122.241 ]

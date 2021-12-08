@@ -1,0 +1,7 @@
+hostname,type,management_ip,platform,mac_address
+spine1,spine,192.168.123.11/24,cEOS,0c:1d:c0:1d:62:11
+spine2,spine,192.168.123.12/24,cEOS,0c:1d:c0:1d:62:12
+leaf1,l3leaf,192.168.123.21/24,cEOS,0c:1d:c0:1d:62:21
+leaf2,l3leaf,192.168.123.22/24,cEOS,0c:1d:c0:1d:62:22
+leaf3,l3leaf,192.168.123.23/24,cEOS,0c:1d:c0:1d:62:23
+leaf4,l3leaf,192.168.123.24/24,cEOS,0c:1d:c0:1d:62:24

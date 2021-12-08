@@ -1,0 +1,9 @@
+server_name,switch_hostname,switch_port,description,port_channel_mode,rack_name,profile
+host11,leaf1,Ethernet1/1,leaf1_to_host11,active,pod1_rack,ACCESS_PROFILE
+host11,leaf2,Ethernet1/1,leaf2_to_host11,,,
+host12,leaf1,Ethernet1/2,leaf3_to_host12,active,pod1_rack,TRUNK_PROFILE
+host12,leaf2,Ethernet1/2,leaf4_to_host12,,,
+host21,leaf3,Ethernet1/1,leaf3_to_host21,active,pod2_rack,ACCESS_PROFILE
+host21,leaf4,Ethernet1/1,leaf4_to_host21,,,
+host22,leaf3,Ethernet1/2,leaf3_to_host22,active,pod2_rack,VLAN150_PROFILE
+host22,leaf4,Ethernet1/2,leaf4_to_host22,,,

@@ -1,0 +1,5 @@
+hostname, management_ip, kind, image, startup_config
+host11, 192.168.123.111/24,ceos, ,init-configs/host11.j2
+host12, 192.168.123.112/24,ceos, ,init-configs/host12.j2
+host21, 192.168.123.121/24,ceos, ,init-configs/host21.j2
+host22, 192.168.123.122/24,ceos, ,init-configs/host22.j2

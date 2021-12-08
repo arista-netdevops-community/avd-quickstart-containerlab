@@ -1,0 +1,57 @@
+---
+# OOB Management network default gateway.
+mgmt_gateway: {{ cookiecutter.in.avd_mgmt.management_gateway }}
+# If ATD is running cEOS, management interface is Management0
+# If ATD is running vEOS, management interface is Management1
+mgmt_interface: {{ cookiecutter.in.avd_mgmt.mgmt_interface }}
+mgmt_interface_vrf: {{ cookiecutter.in.avd_mgmt.mgmt_interface_vrf }}
+
+management_security:
+  password:
+    encryption_key_common: true
+
+# local users
+{%- if cookiecutter.in.avd_mgmt.local_users is defined %}
+local_users:
+{%-     for local_user_name, local_user_data in cookiecutter.in.avd_mgmt.local_users.items() %}
+  {{ local_user_name }}:
+    privilege: {{ local_user_data.privilege }}
+    role: {{ local_user_data.role }}
+    sha512_password: "{{ local_user_data.sha512_password }}"
+{%-     endfor %}
+{%- endif %}
+
+# Cloud Vision server
+{%- if cookiecutter.in.avd_mgmt.cvp_instance_ips is defined %}
+cvp_instance_ips:
+{%-     for cvp_instance_ip in cookiecutter.in.avd_mgmt.cvp_instance_ips %}
+  - {{ cvp_instance_ip }}
+{%-     endfor %}
+cvp_ingestauth_key: {{ cookiecutter.in.avd_mgmt.cvp_ingest_key }}
+{%- endif %}
+
+# dns servers
+{%- if cookiecutter.in.avd_mgmt.dns_server_list is defined %}
+name_servers:
+{%-     for name_server in cookiecutter.in.avd_mgmt.dns_server_list %}
+ - {{ name_server }}
+{%-     endfor %}
+{%- endif %}
+
+# NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Managment
+{%- if cookiecutter.in.avd_mgmt.ntp_server_list is defined %}
+ntp:
+  local_interface:
+    name: {{ cookiecutter.in.avd_mgmt.mgmt_interface }}
+    vrf: {{ cookiecutter.in.avd_mgmt.mgmt_interface_vrf }}
+  servers:
+{%-     for ntp_server in cookiecutter.in.avd_mgmt.ntp_server_list %}
+  - name: {{ ntp_server }}
+    vrf: {{ cookiecutter.in.avd_mgmt.mgmt_interface_vrf }}
+{%-     endfor %}
+{%- endif %}
+
+# dns domain
+{%- if cookiecutter.in.avd_mgmt.dns_domain_name is defined %}
+dns_domain: {{ cookiecutter.in.avd_mgmt.dns_domain_name }}
+{%- endif %}

@@ -1,0 +1,4 @@
+profile_name,switchport_mode,vlan_string
+ACCESS_PROFILE,access,200
+VLAN150_PROFILE,access,150
+TRUNK_PROFILE,trunk,"100-150,200"

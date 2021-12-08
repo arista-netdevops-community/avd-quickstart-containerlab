@@ -1,0 +1,7 @@
+{
+  "python.pythonPath": ".venv/bin/python",
+  "files.associations": {
+    "avd_test.clab.yml": "jinja-yaml",
+    "onboard_devices_to_cvp.py": "jinja-py"
+  }
+}

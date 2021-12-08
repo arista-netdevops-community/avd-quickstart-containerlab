@@ -1,0 +1,5 @@
+hostname, filter_tenants, filter_tags
+leaf1,TENANT_A,"leaf1, l2_only"
+leaf2,TENANT_A,"leaf2, l2_only"
+leaf3,TENANT_A,"l2_only, leaf3"
+leaf4,TENANT_A,"l2_only, leaf4"

@@ -1,0 +1,100 @@
+# L3LS Fabric Values - update these values with caution,
+# SOME CHANGES COULD BE DISRUPTIVE.
+
+fabric_name: {{ cookiecutter.in.avd_general.fabric_name }}
+
+underlay_routing_protocol: BGP
+
+# Enable vlan aware bundles
+vxlan_vlan_aware_bundles: {{ cookiecutter.in.avd_general.vxlan_vlan_aware_bundles }}
+
+# bgp peer groups passwords
+bgp_peer_groups:
+  IPv4_UNDERLAY_PEERS:
+    password: {{ cookiecutter.in.avd_rs.bgp_peering_password }}
+  EVPN_OVERLAY_PEERS:
+    password: {{ cookiecutter.in.avd_rs.bgp_peering_password }}
+  MLAG_IPv4_UNDERLAY_PEER:
+    password: {{ cookiecutter.in.avd_rs.bgp_peering_password }}
+
+# Spine Switches
+spine:
+  defaults:
+    # IP address range for /32 EVPN loopbacks on spines
+    # Assign range larger then total spines
+    loopback_ipv4_pool: {{ cookiecutter.in.avd_ip_pools.spine_loopback_ipv4_pool }}
+  nodes:
+{%- for spine in cookiecutter.out.avd_spine_list %}
+    {{ spine.hostname }}:
+      id: {{ spine.id }}
+      mgmt_ip: {{ spine.management_ip }}
+      platform: {{ spine.platform }}
+      bgp_as: {{ cookiecutter.in.avd_rs.spine_bgp_asn }}
+{%-     if spine.mac_address is defined %}
+      mac_address: '{{ spine.mac_address }}'
+{%-     endif %}
+{%- endfor %}
+
+# Leaf switch groups
+# A maximum of two nodes can form a leaf group
+# When two nodes are in a leaf group this will automatically form mlag pair
+
+l3leaf:
+  defaults:
+    max_parallel_uplinks: {{ cookiecutter.in.avd_general.l3leaf.default.max_parallel_uplinks }}
+    max_uplink_switches: {{ cookiecutter.in.avd_general.l3leaf.default.max_uplink_switches }}
+    # IP address range for /32 EVPN loopbacks on leafs
+    # assign range larger then total leafs
+    loopback_ipv4_pool: {{ cookiecutter.in.avd_ip_pools.leaf_loopback_ipv4_pool }}
+    vtep_loopback_ipv4_pool: {{ cookiecutter.in.avd_ip_pools.l3leaf_vtep_loopback_ipv4_pool }}
+    # adress pool for p2p underlay /31 links between l3leafs and spines
+    # assign range larger then total [Spines * total potential leafs * 2]
+    uplink_ipv4_pool: {{ cookiecutter.in.avd_ip_pools.l3leaf_underlay_uplink_ipv4_pool }}
+{%- if cookiecutter.in.avd_ip_pools.mlag_peer_ipv4_pool is defined %}
+    # address pool for MLAG peering
+    mlag_peer_ipv4_pool: {{ cookiecutter.in.avd_ip_pools.mlag_peer_ipv4_pool }}
+{%- endif %}
+{%- if cookiecutter.in.avd_ip_pools.mlag_peer_l3_ipv4_pool is defined %}
+    # address pool for L3 peering over MLAG peer-link
+    mlag_peer_l3_ipv4_pool: {{ cookiecutter.in.avd_ip_pools.mlag_peer_l3_ipv4_pool }}
+{%- endif %}
+    # virtual router mac for VNIs assigned to Leaf switches
+    # format: xx:xx:xx:xx:xx:xx
+    virtual_router_mac_address: {{ cookiecutter.in.avd_rs.virtual_router_mac_address }}
+    spanning_tree_priority: {{ cookiecutter.in.avd_rs.l3leaf_stp_priority }}
+    spanning_tree_mode: {{ cookiecutter.in.avd_rs.l3leaf_stp_mode }}
+  node_groups:
+{%- for pod in cookiecutter.out.avd_l3leaf_pod_list %}
+    {{ pod.name }}:
+{%-     if ( pod.filter_tenants is defined ) or ( pod.filter_tags is defined ) %}
+      filter:
+{%-         if pod.always_include_vrfs_in_tenants is defined  %}
+        always_include_vrfs_in_tenants: {{ pod.always_include_vrfs_in_tenants }}
+{%-         endif %}
+{%-     endif %}
+{%-     if pod.filter_tenants is defined %}
+        tenants: {{ pod.filter_tenants }}
+{%-     endif %}
+{%-     if pod.filter_tags is defined %}
+        tags: {{ pod.filter_tags }}
+{%-     endif %}
+      bgp_as: {{ pod.asn }}
+      nodes:
+{%-     for leaf in pod.leafs %}
+        {{ leaf.hostname }}:
+          id: {{ leaf.id }}
+          mgmt_ip: {{ leaf.management_ip }}
+          platform: {{ leaf.platform }}
+          uplink_switches: {{ leaf.spines }}
+          uplink_interfaces: {{ leaf.uplink_to_spine_list }}
+          uplink_switch_interfaces: {{ leaf.spine_interface_list }}
+{%-         if leaf.mac_address is defined %}
+          mac_address: '{{ leaf.mac_address }}'
+{%-         endif %}
+{%-         if leaf.mlag_interfaces is defined %}
+          mlag_interfaces: {{ leaf.mlag_interfaces }}
+{%-         endif %}
+{%-     endfor %}
+{%- endfor %}
+
+p2p_uplinks_mtu: {{ cookiecutter.in.avd_general.underlay_p2p_link_mtu }}

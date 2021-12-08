@@ -1,0 +1,17 @@
+---
+# IP address pool for /31 p2p underlay links
+# Assign range larger then total [Spines * total potential leafs * 2]
+l3leaf_underlay_uplink_ipv4_pool: 172.31.255.0/24
+# IP address ranges for /32 evpn Loopbacks
+# Assign range larger then total Spines + total leafs switches
+spine_loopback_ipv4_pool: 192.0.255.0/25
+leaf_loopback_ipv4_pool: 192.0.255.128/25
+# VTEP VXLAN Tunnel source loopback IP for leaf switches, assigned in /32s
+# Assign range larger then total leaf switches
+l3leaf_vtep_loopback_ipv4_pool: 192.0.254.0/24
+# MLAG IP pools
+# Assign range larger then total Spines + total leafs switches
+# MLAG L3 peering VLAN 4093
+mlag_peer_l3_ipv4_pool: 10.255.251.0/24
+# MLAG peering VLAN 4094
+mlag_peer_ipv4_pool: 10.255.252.0/24

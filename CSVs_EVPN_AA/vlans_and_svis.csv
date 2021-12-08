@@ -1,0 +1,4 @@
+tenant_name,vlan_number,vlan_name,filter_tags,ip_vrf,ip_virtual_address_and_mask,mtu,igmp_snooping_enabled
+TENANT_A,100,TENANT_A_BGP_TO_COMPUTE,"leaf1, leaf2",TEST_VRF,10.100.100.1/24,,
+TENANT_A,150,TENANT_A_BGP_TO_COMPUTE,"leaf3, leaf4",TEST_VRF,10.100.150.1/24,,
+TENANT_A,200,TENANT_A_TEST_L2_ONLY_VLAN,l2_only,,,,

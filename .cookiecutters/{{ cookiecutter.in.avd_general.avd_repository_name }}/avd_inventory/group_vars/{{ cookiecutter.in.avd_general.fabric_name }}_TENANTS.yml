@@ -1,0 +1,37 @@
+tenants:
+{%- for tenant in cookiecutter.out.tenants_vrfs %}
+  {{ tenant.tenant_name }}:
+    mac_vrf_vni_base: {{ tenant.mac_vrf_vni_base }}
+{%-     if tenant.vrfs is defined %}
+    vrfs:
+{%-         for vrf in tenant.vrfs %}
+      {{ vrf.ip_vrf_name }}:
+        vrf_vni: {{ vrf.ip_vrf_vni }}
+        vtep_diagnostic:
+          loopback: {{ vrf.vrf_diagnostic_loopback_number }}
+          loopback_ip_range: {{ vrf.vrf_diagnostic_loopback_ip_range }}
+{%-             if tenant.svis is defined %}
+        svis:
+          # add VLANs and SVIs from CSV
+{%-                 for svi in tenant.svis %}
+          {{ svi.vlan_number }}:
+            name: {{ svi.vlan_name }}
+            {% if svi.filter_tags is defined %}tags: {{ svi.filter_tags }}{% endif %}
+            enabled: true
+            ip_address_virtual: {{ svi.ip_virtual_address_and_mask }}
+            {% if svi.mtu is defined %}mtu: {{ svi.mtu }}{% endif %}
+            {% if svi.igmp_snooping_enabled is defined %}igmp_snooping_enabled: {{ svi.igmp_snooping_enabled }}{% endif %}
+{%-                 endfor %}
+{%-             endif %}
+{%-         endfor %}
+{%-     endif %}
+
+{%-     if tenant.l2vlans is defined %}
+    l2vlans:
+{%-         for vlan in tenant.l2vlans %}
+      {{ vlan.vlan_number }}:
+        name: {{ vlan.vlan_name }}
+        {% if vlan.filter_tags is defined %}tags: {{ vlan.filter_tags }}{% endif %}
+{%-         endfor %}
+{%-     endif %}
+{%- endfor %}

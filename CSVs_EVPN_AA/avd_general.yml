@@ -1,0 +1,20 @@
+---
+# Name of the directory where AVD repository will be located
+# There is no need to specify full path here, just directory name
+avd_repository_name: avd_lab
+
+# leaf-spine fabric name
+fabric_name: AVD_FABRIC
+
+# Enable vlan aware bundles
+vxlan_vlan_aware_bundles: False
+
+# Use 1500 for vEOS, 9200 for hardware platforms
+underlay_p2p_link_mtu: 1500
+
+l3leaf:
+  default:
+# maximum number of links parallel between single leaf and single spine
+    max_parallel_uplinks: 8
+# maximum number of uplink (spine) switches
+    max_uplink_switches: 4

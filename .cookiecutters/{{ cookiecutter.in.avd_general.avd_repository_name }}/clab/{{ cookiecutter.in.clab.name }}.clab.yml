@@ -1,0 +1,48 @@
+name: {{ cookiecutter.in.clab.name }}
+
+mgmt:
+  network: {{ cookiecutter.in.clab.mgmt_network.name }}
+  ipv4_subnet: {{ cookiecutter.in.clab.mgmt_network.subnet }}
+
+topology:
+  kinds:
+    ceos:
+      startup-config: init-configs/ceos-cfg.j2
+      image: {{ cookiecutter.in.clab.ceos_image }}
+    # linux:
+    #   image: alpine-host
+  defaults:
+    kind: ceos
+  nodes:
+{%- for a_switch in cookiecutter.in.inventory %}
+    {{ a_switch.hostname }}:
+      mgmt_ipv4: {{ a_switch.management_ip.split('/')[0] }}
+{%- endfor %}
+{%- for a_node in cookiecutter.in.non_avd_inventory %}
+    {{ a_node.hostname }}:
+      mgmt_ipv4: {{ a_node.management_ip.split('/')[0] }}
+{%-     if a_node.kind is defined %}
+{%-         if a_node.kind != "" %}
+      kind: {{ a_node.kind }}
+{%-         endif %}
+{%-         if a_node.kind == "linux" %}
+      env:
+        TMODE: lacp
+{%-         endif %}
+{%-     endif %}
+{%-     if a_node.image is defined %}
+{%-         if a_node.image != "" %}
+      image: {{ a_node.image }}
+{%-         endif %}
+{%-     endif %}
+{%-     if a_node.startup_config is defined %}
+{%-         if a_node.startup_config != "" %}
+      startup-config: {{ a_node.startup_config }}
+{%-         endif %}
+{%-     endif %}
+{%- endfor %}
+
+  links:
+{%- for a_link in cookiecutter.out.clab_links %}
+  - endpoints: ["{{ a_link.local_switch }}:{{ a_link.local_interface }}", "{{ a_link.remote_switch }}:{{ a_link.remote_interface }}"]
+{%- endfor %}

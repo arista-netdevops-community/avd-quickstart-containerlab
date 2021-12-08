@@ -1,0 +1,13 @@
+---
+# AVD Routing and Switching Configuration
+#
+# BGP underlay parameters
+spine_bgp_asn: 65001
+leaf_as_range: 65101-65132
+# BGP peering password, type-7 encrypted
+bgp_peering_password: "$1c$caHDPKDBzOjl6ZrDQLicDQ=="
+
+# L3leaf Defaults
+virtual_router_mac_address: 00:1c:73:00:dc:01
+l3leaf_stp_priority: 4096
+l3leaf_stp_mode: mstp
