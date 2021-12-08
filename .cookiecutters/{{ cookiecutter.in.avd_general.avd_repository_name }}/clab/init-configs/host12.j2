@@ -22,6 +22,7 @@ management api http-commands
 interface Port-Channel1
    switchport trunk allowed vlan 100-150,200
    switchport mode trunk
+   no shutdown
 !
 interface Ethernet1
    channel-group 1 mode active
@@ -41,31 +42,5 @@ no ip routing vrf MGMT
 !
 ip route vrf MGMT 0.0.0.0/0 192.168.123.1
 ip route 0.0.0.0/0 10.100.100.1
-!
-interface Port-Channel1
-   no shutdown
-!
-interface Ethernet1
-   no shutdown
-   channel-group 1 mode active
-!
-interface Ethernet2
-   no shutdown
-   channel-group 1 mode active
-!
-router bfd
-   multihop interval 300 min-rx 300 multiplier 3
-!
-router bgp 65555
-   neighbor 10.255.1.5 remote-as 65105
-   neighbor 10.255.1.5 update-source Vlan100
-   neighbor 10.255.1.5 ebgp-multihop
-   neighbor 10.255.1.5 password 7 X0hRHX6yCZhuOZ5ASHa48/3fXP1d5tKV
-   neighbor 10.255.1.5 bfd
-   neighbor 10.255.1.6 remote-as 65106
-   neighbor 10.255.1.6 update-source Vlan100
-   neighbor 10.255.1.6 ebgp-multihop 5
-   neighbor 10.255.1.6 password 7 Ld9GXXDWOI07a8ZRSi40OZIzQttlng/F
-   neighbor 10.255.1.6 bfd
 !
 end

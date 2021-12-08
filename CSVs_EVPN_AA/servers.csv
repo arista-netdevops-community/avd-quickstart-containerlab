@@ -5,5 +5,5 @@ host12,leaf1,Ethernet1/2,leaf3_to_host12,active,pod1_rack,TRUNK_PROFILE
 host12,leaf2,Ethernet1/2,leaf4_to_host12,,,
 host21,leaf3,Ethernet1/1,leaf3_to_host21,active,pod2_rack,ACCESS_PROFILE
 host21,leaf4,Ethernet1/1,leaf4_to_host21,,,
-host22,leaf3,Ethernet1/2,leaf3_to_host22,active,pod2_rack,OSPF_PROFILE
+host22,leaf3,Ethernet1/2,leaf3_to_host22,active,pod2_rack,VLAN150_PROFILE
 host22,leaf4,Ethernet1/2,leaf4_to_host22,,,

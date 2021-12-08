@@ -1,4 +1,4 @@
 profile_name,switchport_mode,vlan_string
 ACCESS_PROFILE,access,200
-OSPF_PROFILE,access,150
+VLAN150_PROFILE,access,150
 TRUNK_PROFILE,trunk,"100-150,200"

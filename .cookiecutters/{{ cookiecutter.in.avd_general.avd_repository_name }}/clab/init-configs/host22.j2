@@ -15,9 +15,6 @@ management api http-commands
    vrf MGMT
       no shutdown
 !
-interface Loopback22
-   ip address 10.22.22.22/32
-!
 interface Management0
    vrf MGMT
    {{ if .MgmtIPv4Address }}   ip address {{ .MgmtIPv4Address }}/{{ .MgmtIPv4PrefixLength }}{{end}}
@@ -25,20 +22,12 @@ interface Management0
 ip routing
 no ip routing vrf MGMT
 !
+ip route 0.0.0.0/0 10.100.150.1
 ip route vrf MGMT 0.0.0.0/0 192.168.123.1
-!
-router ospf 150
-   router-id 10.22.22.22
-   redistribute connected
-   max-lsa 12000
-   log-adjacency-changes detail
 !
 interface Port-Channel1
    no switchport
    ip address 10.100.150.22/24
-   ip ospf authentication message-digest
-   ip ospf area 0.0.0.0
-   ip ospf message-digest-key 55 md5 7 K2+2K3oGtdkgiGQKSIjnzA==
 !
 interface Ethernet1
    no shutdown
