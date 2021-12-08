@@ -58,3 +58,11 @@ avd_build_eapi: ## build configs and configure switches via eAPI
 .PHONY: avd_build_cvp
 avd_build_cvp: ## build configs and configure switches via eAPI
 	cd $(CURRENT_DIR)/$(AVD_REPOSITORY_NAME); ansible-playbook playbooks/fabric-deploy-cvp.yml
+
+.PHONY: avd_validate
+avd_validate: ## build configs and configure switches via eAPI
+	cd $(CURRENT_DIR)/$(AVD_REPOSITORY_NAME); ansible-playbook playbooks/validate-states.yml
+
+.PHONY: avd_snapshot
+avd_snapshot: ## build configs and configure switches via eAPI
+	cd $(CURRENT_DIR)/$(AVD_REPOSITORY_NAME); ansible-playbook playbooks/snapshot.yml
