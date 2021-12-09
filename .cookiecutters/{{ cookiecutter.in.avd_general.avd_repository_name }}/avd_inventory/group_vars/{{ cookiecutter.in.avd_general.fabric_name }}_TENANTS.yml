@@ -14,6 +14,7 @@ tenants:
         svis:
           # add VLANs and SVIs from CSV
 {%-                 for svi in tenant.svis %}
+{%-                    if svi.ip_vrf == vrf.ip_vrf_name %}
           {{ svi.vlan_number }}:
             name: {{ svi.vlan_name }}
             {% if svi.filter_tags is defined %}tags: {{ svi.filter_tags }}{% endif %}
@@ -21,6 +22,7 @@ tenants:
             ip_address_virtual: {{ svi.ip_virtual_address_and_mask }}
             {% if svi.mtu is defined %}mtu: {{ svi.mtu }}{% endif %}
             {% if svi.igmp_snooping_enabled is defined %}igmp_snooping_enabled: {{ svi.igmp_snooping_enabled }}{% endif %}
+{%-                     endif %}
 {%-                 endfor %}
 {%-             endif %}
 {%-         endfor %}
