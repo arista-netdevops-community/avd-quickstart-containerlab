@@ -1,5 +1,5 @@
 # use AVD all-in-one container to get all AVD requirements
-FROM avdteam/avd-all-in-one:latest
+FROM avdteam/avd-all-in-one:avd3.1.0_cvp3.2.0_debian
 
 COPY requirements.txt /tmp/pip-tmp/requirements.txt
 WORKDIR /tmp/pip-tmp/
