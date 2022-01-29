@@ -7,6 +7,8 @@ RUN pip install --upgrade pip \
     && pip install -r requirements.txt \
     && sudo rm -rf /tmp/pip-tmp
 
+RUN sudo bash -c "$(curl -sL https://get-clab.srlinux.dev)" -- -v 0.23.0
+
 # add aliases for quick lab access
 # TODO: make it dynamic in future
 RUN echo "alias spine1='sshpass -p arista123 ssh -o \"StrictHostKeyChecking no\" cvpadmin@spine1'">> ${HOME}/.zshrc \
