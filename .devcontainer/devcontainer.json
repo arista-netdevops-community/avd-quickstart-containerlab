@@ -23,7 +23,6 @@
 	],
 	"mounts": [
 		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind,consistency=cached",
-		"source=/var/run/netns,target=/var/run/netns,type=bind,consistency=cached",
 		"source=/etc/hosts,target=/etc/hosts,type=bind,consistency=cached"
 	],
 	"settings": {
