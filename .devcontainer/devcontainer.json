@@ -4,6 +4,9 @@
 		"dockerfile": "Dockerfile",
 		"context": ".."
 	},
+	"runArgs": [
+		"--network=host"
+	],
 	"remoteUser": "avd",
 	"extensions": [
 		"ms-python.python",
@@ -17,5 +20,20 @@
 		"eamodio.gitlens",
 		"mechatroner.rainbow-csv",
 		"visualstudioexptteam.vs"
-	]
+	],
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind,consistency=cached",
+		"source=/var/run/netns,target=/var/run/netns,type=bind,consistency=cached",
+		"source=/etc/hosts,target=/etc/hosts,type=bind,consistency=cached"
+	],
+	"settings": {
+		"python.pythonPath": "/usr/local/bin/python",
+		"python.defaultInterpreterPath": "/usr/local/bin/python"
+	},
+	"remoteEnv": {
+		"LOCALWSF": "${localWorkspaceFolder}",
+		"CONTAINERWSF": "${containerWorkspaceFolder}"
+	},
+	"workspaceMount": "source=${localWorkspaceFolder},target=/home/avd/projects,type=bind",
+	"workspaceFolder": "/home/avd/projects"
 }
