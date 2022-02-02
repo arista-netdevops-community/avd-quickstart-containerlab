@@ -31,7 +31,7 @@ onboard: ## onboard devices to CVP
 
 .PHONY: inventory_evpn_aa
 inventory_evpn_aa: ## onboard devices to CVP
-	/home/avd/projects/cook_and_cut.py --input_directory CSVs_EVPN_AA; . ~/.zshrc
+	/home/avd/projects/cook_and_cut.py --input_directory CSVs_EVPN_AA
 
 .PHONY: inventory_evpn_mlag
 inventory_evpn_mlag: ## onboard devices to CVP
