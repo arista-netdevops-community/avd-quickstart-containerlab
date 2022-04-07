@@ -4,6 +4,11 @@
 		"dockerfile": "Dockerfile",
 		"context": ".."
 	},
+	"runArgs": [
+		"--network=host",
+        "--pid=host",
+		"--privileged"
+	],
 	"remoteUser": "avd",
 	"extensions": [
 		"ms-python.python",
@@ -17,5 +22,16 @@
 		"eamodio.gitlens",
 		"mechatroner.rainbow-csv",
 		"visualstudioexptteam.vs"
-	]
+	],
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind,consistency=cached",
+		"source=/etc/hosts,target=/etc/hosts,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder}/99-zceos.conf,target=/etc/sysctl.d/99-zceos.conf,type=bind,consistency=cached,readonly"
+	],
+	"remoteEnv": {
+		"LOCALWSF": "${localWorkspaceFolder}",
+		"CONTAINERWSF": "${containerWorkspaceFolder}"
+	},
+	"workspaceMount": "source=${localWorkspaceFolder},target=/home/avd/projects,type=bind",
+	"workspaceFolder": "/home/avd/projects"
 }
