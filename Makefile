@@ -78,7 +78,7 @@ inventory_evpn_mlag: ## onboard devices to CVP
 .PHONY: clab_deploy
 clab_deploy: ## Deploy ceos lab
 	if [ "${_IN_CONTAINER}" = "True" ]; then \
-		sudo containerlab deploy --debug --topo $(CURRENT_DIR)/clab/$(CLAB_NAME).clab.yml --max-workers 2 --timeout 5m ;\
+		sudo containerlab deploy --debug --topo $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}/clab/$(CLAB_NAME).clab.yml --max-workers 2 --timeout 5m ;\
 	else \
 		docker run --rm -it --privileged \
 			--network host \
@@ -90,13 +90,13 @@ clab_deploy: ## Deploy ceos lab
 			-v /etc/sysctl.d/99-zceos.conf:/etc/sysctl.d/99-zceos.conf:ro \
 			-e AVD_GIT_USER="$(shell git config --get user.name)" \
 			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
-			$(DOCKER_NAME):latest sudo containerlab deploy --debug --topo $(CURRENT_DIR)/clab/$(CLAB_NAME).clab.yml --max-workers 2 --timeout 5m ;\
+			$(DOCKER_NAME):latest sudo containerlab deploy --debug --topo $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}/clab/$(CLAB_NAME).clab.yml --max-workers 2 --timeout 5m ;\
 	fi
 
 .PHONY: clab_destroy
 clab_destroy: ## Destroy ceos lab
 	if [ "${_IN_CONTAINER}" = "True" ]; then \
-		sudo containerlab destroy --debug --topo $(CURRENT_DIR)/clab/$(CLAB_NAME).clab.yml --cleanup ; \
+		sudo containerlab destroy --debug --topo $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}/clab/$(CLAB_NAME).clab.yml --cleanup ; \
 	else \
 		docker run --rm -it --privileged \
 			--network host \
@@ -108,5 +108,5 @@ clab_destroy: ## Destroy ceos lab
 			-v /etc/sysctl.d/99-zceos.conf:/etc/sysctl.d/99-zceos.conf:ro \
 			-e AVD_GIT_USER="$(shell git config --get user.name)" \
 			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
-			test_clab:latest sudo containerlab destroy --debug --topo $(CURRENT_DIR)/clab/$(CLAB_NAME).clab.yml --cleanup ; \
+			test_clab:latest sudo containerlab destroy --debug --topo $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}/clab/$(CLAB_NAME).clab.yml --cleanup ; \
 	fi
