@@ -14,6 +14,10 @@ DOCKER_IMAGE_PRESENT := $(shell docker image ls | grep '^$(DOCKER_NAME)[[:space:
 help: ## Display help message
 	@grep -E '^[0-9a-zA-Z_-]+\.*[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
+.PHONY: prepare_mac_os
+prepare_mac_os: ## Prepare Docker Desktop on MacOS for cEOS-based Containerlab
+	$(CURRENT_DIR)/MacOS_set_DockerDesktop.sh
+
 .PHONY: build
 build: ## Build docker image, if the image is not present
 	if [ -z "${DOCKER_IMAGE_PRESENT}" ]; then \
