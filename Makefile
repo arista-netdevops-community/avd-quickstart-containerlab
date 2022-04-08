@@ -165,12 +165,12 @@ avd_build_eapi: ## build configs and configure switches via eAPI
 			-v /var/run/docker.sock:/var/run/docker.sock \
 			-v /etc/hosts:/etc/hosts \
 			--pid="host" \
-			-w $(CONTAINERWSF) \
+			-w $(CONTAINERWSF)/${AVD_REPOSITORY_NAME} \
 			-v $(CURRENT_DIR):$(CONTAINERWSF) \
 			-v $(CURRENT_DIR)/99-zceos.conf:/etc/sysctl.d/99-zceos.conf:ro \
 			-e AVD_GIT_USER="$(shell git config --get user.name)" \
 			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
-			$(DOCKER_NAME):latest ansible-playbook $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/playbooks/fabric-deploy-eapi.yml ; \
+			$(DOCKER_NAME):latest ansible-playbook playbooks/fabric-deploy-eapi.yml ; \
 	fi
 
 .PHONY: avd_build_cvp
