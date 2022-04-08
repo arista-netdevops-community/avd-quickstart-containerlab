@@ -158,7 +158,7 @@ onboard: ## onboard devices to CVP
 .PHONY: avd_build_eapi
 avd_build_eapi: ## build configs and configure switches via eAPI
 	if [ "${_IN_CONTAINER}" = "True" ]; then \
-		ansible-playbook $(CONTAINERWSF)/playbooks/fabric-deploy-eapi.yml ; \
+		ansible-playbook $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/playbooks/fabric-deploy-eapi.yml ; \
 	else \
 		docker run --rm -it --privileged \
 			--network host \
@@ -170,13 +170,13 @@ avd_build_eapi: ## build configs and configure switches via eAPI
 			-v $(CURRENT_DIR)/99-zceos.conf:/etc/sysctl.d/99-zceos.conf:ro \
 			-e AVD_GIT_USER="$(shell git config --get user.name)" \
 			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
-			$(DOCKER_NAME):latest ansible-playbook $(CONTAINERWSF)/playbooks/fabric-deploy-eapi.yml ; \
+			$(DOCKER_NAME):latest ansible-playbook $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/playbooks/fabric-deploy-eapi.yml ; \
 	fi
 
 .PHONY: avd_build_cvp
 avd_build_cvp: ## build configs and configure switches via eAPI
 	if [ "${_IN_CONTAINER}" = "True" ]; then \
-		ansible-playbook $(CONTAINERWSF)/playbooks/fabric-deploy-cvp.yml ; \
+		ansible-playbook $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/playbooks/fabric-deploy-cvp.yml ; \
 	else \
 		docker run --rm -it --privileged \
 			--network host \
@@ -188,13 +188,13 @@ avd_build_cvp: ## build configs and configure switches via eAPI
 			-v $(CURRENT_DIR)/99-zceos.conf:/etc/sysctl.d/99-zceos.conf:ro \
 			-e AVD_GIT_USER="$(shell git config --get user.name)" \
 			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
-			$(DOCKER_NAME):latest ansible-playbook $(CONTAINERWSF)/playbooks/fabric-deploy-cvp.yml ; \
+			$(DOCKER_NAME):latest ansible-playbook $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/playbooks/fabric-deploy-cvp.yml ; \
 	fi
 
 .PHONY: avd_validate
 avd_validate: ## build configs and configure switches via eAPI
 	if [ "${_IN_CONTAINER}" = "True" ]; then \
-		ansible-playbook $(CONTAINERWSF)/playbooks/validate-states.yml ; \
+		ansible-playbook $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/playbooks/validate-states.yml ; \
 	else \
 		docker run --rm -it --privileged \
 			--network host \
@@ -206,13 +206,13 @@ avd_validate: ## build configs and configure switches via eAPI
 			-v $(CURRENT_DIR)/99-zceos.conf:/etc/sysctl.d/99-zceos.conf:ro \
 			-e AVD_GIT_USER="$(shell git config --get user.name)" \
 			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
-			$(DOCKER_NAME):latest ansible-playbook $(CONTAINERWSF)/playbooks/validate-states.yml ; \
+			$(DOCKER_NAME):latest ansible-playbook $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/playbooks/validate-states.yml ; \
 	fi
 
 .PHONY: avd_snapshot
 avd_snapshot: ## build configs and configure switches via eAPI
 	if [ "${_IN_CONTAINER}" = "True" ]; then \
-		ansible-playbook $(CONTAINERWSF)/playbooks/validate-states.yml ; \
+		ansible-playbook $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/playbooks/validate-states.yml ; \
 	else \
 		docker run --rm -it --privileged \
 			--network host \
@@ -224,5 +224,5 @@ avd_snapshot: ## build configs and configure switches via eAPI
 			-v $(CURRENT_DIR)/99-zceos.conf:/etc/sysctl.d/99-zceos.conf:ro \
 			-e AVD_GIT_USER="$(shell git config --get user.name)" \
 			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
-			$(DOCKER_NAME):latest ansible-playbook $(CONTAINERWSF)/playbooks/validate-states.yml ; \
+			$(DOCKER_NAME):latest ansible-playbook $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/playbooks/validate-states.yml ; \
 	fi
