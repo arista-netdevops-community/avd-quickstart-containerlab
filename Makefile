@@ -111,3 +111,21 @@ clab_destroy: ## Destroy ceos lab
 			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
 			test_clab:latest sudo containerlab destroy --debug --topo $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/clab/$(CLAB_NAME).clab.yml --cleanup ; \
 	fi
+
+.PHONY: clab_graph
+clab_graph: ## Build lab graph
+	if [ "${_IN_CONTAINER}" = "True" ]; then \
+		sudo containerlab graph --topo $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/clab/$(CLAB_NAME).clab.yml ;\
+	else \
+		docker run --rm -it --privileged \
+			--network host \
+			-v /var/run/docker.sock:/var/run/docker.sock \
+			-v /etc/hosts:/etc/hosts \
+			--pid="host" \
+			-w $(CONTAINERWSF) \
+			-v $(CURRENT_DIR):$(CONTAINERWSF) \
+			-v /etc/sysctl.d/99-zceos.conf:/etc/sysctl.d/99-zceos.conf:ro \
+			-e AVD_GIT_USER="$(shell git config --get user.name)" \
+			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
+			$(DOCKER_NAME):latest sudo containerlab graph --topo $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/clab/$(CLAB_NAME).clab.yml ;\
+	fi
