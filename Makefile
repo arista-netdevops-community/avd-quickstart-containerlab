@@ -129,3 +129,10 @@ clab_graph: ## Build lab graph
 			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
 			$(DOCKER_NAME):latest sudo containerlab graph --topo $(CONTAINERWSF)/${AVD_REPOSITORY_NAME}/clab/$(CLAB_NAME).clab.yml ;\
 	fi
+
+.PHONY: clean
+clean: ## Remove all containerlab files and directories
+	sudo rm -rf $(AVD_REPOSITORY_NAME); sudo rm .cookiecutters/cookiecutter.json
+
+.PHONY: rm
+rm: clean ## Remove all containerlab files and directories
