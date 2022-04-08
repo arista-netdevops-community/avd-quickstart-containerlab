@@ -211,7 +211,7 @@ avd_validate: ## build configs and configure switches via eAPI
 .PHONY: avd_snapshot
 avd_snapshot: ## build configs and configure switches via eAPI
 	if [ "${_IN_CONTAINER}" = "True" ]; then \
-		cd $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}; ansible-playbook playbooks/validate-states.yml ; \
+		cd $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}; ansible-playbook playbooks/snapshot.yml ; \
 	else \
 		docker run --rm -it --privileged \
 			--network host \
@@ -223,5 +223,5 @@ avd_snapshot: ## build configs and configure switches via eAPI
 			-v $(CURRENT_DIR)/99-zceos.conf:/etc/sysctl.d/99-zceos.conf:ro \
 			-e AVD_GIT_USER="$(shell git config --get user.name)" \
 			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
-			$(DOCKER_NAME):latest ansible-playbook playbooks/validate-states.yml ; \
+			$(DOCKER_NAME):latest ansible-playbook playbooks/snapshot.yml ; \
 	fi
