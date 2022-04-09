@@ -1,6 +1,6 @@
 # AVD Quickstart Containerlab
 
-> **WARNING**
+> **WARNING**  
 > Please read the guide before you start using AVD Quickstart Containerlab.
 > Make sure that you understand the consequences of running Containerlab, cEOS-lab and various scripts provided with this repository on your machine. The components of the lab may change your system settings as they will have super user privileges.
 > While this repository was tested on a number of machines without doing any harm, have a plan B. You are responsible for your lab machine, not the contributors.
@@ -13,8 +13,8 @@
 >    /   \
 > ```
 
-**For M1 MacBooks owners**
-Sorry. Not yet supported.
+> **For M1 MacBooks owners**  
+> Sorry. Not yet supported.
 
 - [AVD Quickstart Containerlab](#avd-quickstart-containerlab)
 - [Overview](#overview)
