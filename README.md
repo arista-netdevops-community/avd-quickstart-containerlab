@@ -4,8 +4,9 @@
 > Please read the guide before you start using AVD Quickstart Containerlab.
 > Make sure that you understand the consequences of running Containerlab, cEOS-lab and various scripts provided with this repository on your machine. The components of the lab may change your system settings as they will have super user privileges.
 > While this repository was tested on a number of machines without doing any harm, have a plan B. You are responsible for your lab machine, not the contributors.
-> 
-> `"With su power comes great responsibility" (c)` 
+>
+> `"With su power comes great responsibility" (c)`
+>
 > ```text
 >   /  _  \
 > \_\_(_)_/_/
@@ -13,7 +14,7 @@
 >    /   \
 > ```
 
-> **For M1 MacBooks owners**:  
+**For M1 MacBooks owners**:  
 > Sorry. Not yet supported.
 
 - [AVD Quickstart Containerlab](#avd-quickstart-containerlab)
@@ -36,6 +37,7 @@ The initial lab list provided in this repository is focused on learning and test
 Some labs can be easily adjusted to your needs using simplified CSV and YAML inputs.
 
 Currently following labs are available:
+
 - AVD repository to build EVPN MLAG network
 - AVD repository to build EVPN Active-Active network
 
@@ -43,6 +45,7 @@ Currently following labs are available:
 
 A machine with Docker CE or Docker Desktop is required.
 Following operating systems were tested:
+
 - Ubuntu LTS Server
 - MacOs (on x86 laptops only)
 The lab is expected to run on any major Linux distribution.
@@ -67,7 +70,7 @@ It is also possible to run CVP on a dedicated host and a different hypervisor as
 
 The lab setup diagram:
 
-![lab diagram](media/avd_quickstart.jpeg)
+![lab diagram](media/lab_setup.png)
 
 ## Release Notes:
 
