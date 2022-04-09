@@ -20,7 +20,6 @@
   - [Overview](#overview)
   - [Lab Requirements](#lab-requirements)
   - [Release Notes:](#release-notes)
-  - [Lab Prerequisites](#lab-prerequisites)
   - [How To Use The Lab](#how-to-use-the-lab)
   - [How To Destroy The Lab](#how-to-destroy-the-lab)
 
@@ -52,7 +51,7 @@ Please test and contribute by reporting and/or fixing possible issues.
 Hardware requirements depend on the number of containers deployed. Please read [Containerlab Scalability with cEOS](#containerlab-scalability-with-ceos) section before deploying a large topology.
 For a small topology of 10+ cEOS containers 8 vCPUs and 10 GB RAM are recommended.
 
-> **WARNING**: Please make sure that your host has enough resorces. Otherwise Containerlab can enter stale state and require Docker restart.
+> **WARNING**: Please make sure that your host has enough resorces. Otherwise Containerlab can enter "frozen" state and require Docker restart.
 
 To install Docker on a Linux machine, check [this guide](https://docs.docker.com/engine/install/ubuntu/).
 To get Docker Desktop, check [docker.com](https://www.docker.com/products/docker-desktop/).
@@ -85,11 +84,6 @@ The lab setup diagram:
   - The Dockerfile can be used as VSCode devcontainer or standalone.
   - The lab environment is now supported and tested on MacOS. x86 MacBooks only.
   - Dynamic aliases in the container for quick access to lab devices.
-
-## Lab Prerequisites
-
-The lab requires a single Linux host (Ubuntu server recommended) with [Docker](https://docs.docker.com/engine/install/ubuntu/) 
-
 
 ## How To Use The Lab
 
