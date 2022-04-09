@@ -14,7 +14,7 @@ DOCKER_IMAGE_PRESENT := $(shell docker image ls | grep '^$(DOCKER_NAME)[[:space:
 help: ## Display help message
 	@grep -E '^[0-9a-zA-Z_-]+\.*[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: prepare_mac_os
+.PHONY: prepare_macos
 prepare_mac_os: ## Prepare Docker Desktop on MacOS for cEOS-based Containerlab
 	$(CURRENT_DIR)/MacOS_set_DockerDesktop.sh
 
@@ -88,7 +88,6 @@ inventory_evpn_mlag: ## onboard devices to CVP
 clab_deploy: ## Deploy ceos lab
 	if [ "${_IN_CONTAINER}" = "True" ]; then \
 		sudo containerlab deploy --debug --topo $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}/clab/$(CLAB_NAME).clab.yml --max-workers 2 --timeout 5m ;\
-		source $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}/add_aliases.zshrc ;\
 	else \
 		docker run --rm -it --privileged \
 			--network host \
@@ -101,7 +100,6 @@ clab_deploy: ## Deploy ceos lab
 			-e AVD_GIT_USER="$(shell git config --get user.name)" \
 			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
 			$(DOCKER_NAME):latest sudo containerlab deploy --debug --topo $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}/clab/$(CLAB_NAME).clab.yml --max-workers 2 --timeout 5m ;\
-		source $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}/add_aliases.zshrc ;\
 	fi
 
 .PHONY: clab_destroy
