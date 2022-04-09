@@ -13,23 +13,62 @@
 >    /   \
 > ```
 
-> **For M1 MacBooks owners**  
+> **For M1 MacBooks owners**:  
 > Sorry. Not yet supported.
 
 - [AVD Quickstart Containerlab](#avd-quickstart-containerlab)
-- [Overview](#overview)
+  - [Overview](#overview)
+  - [Lab Requirements](#lab-requirements)
   - [Release Notes:](#release-notes)
   - [Lab Prerequisites](#lab-prerequisites)
   - [How To Use The Lab](#how-to-use-the-lab)
   - [How To Destroy The Lab](#how-to-destroy-the-lab)
 
-# Overview
+## Overview
 
-This repository helps to build your own [AVD](https://avd.sh/en/latest/) test lab based on [Containerlab](https://containerlab.srlinux.dev/) in minutes.
-The main target is to provide an easy way to build the environment to learn and test AVD automation.
-The lab can be used together with CVP VM, but it's not mandatory.
+The AVD Quickstart repository is a collection of Arista EOS labs based on [Containerlab](https://containerlab.srlinux.dev/) that you can build on any machine with Docker in a few minutes.
+The ultimate target of this repository is to provide a **portable Arista lab collection** for everyone. This collection can be used to learn and test certain Arista EOS features and in certain cases even build configs for production environment with the excemption of hardware features.
 
-> WARNING: if CVP VM is part of the lab, make sure that it's reachable and credentials configured on CVP are matching the lab.
+Some labs provided in this repository can be used with CloudVision Portal VM that must be deployed separately. But all labs that are not focused on CVP features can be used without such VM as it is quite resource intensive and can not be deployed on an avarage laptop for example.
+
+> **WARNING**: if CVP VM is part of the lab, make sure that it's reachable and credentials configured on CVP are matching the lab.
+
+The initial lab list provided in this repository is focused on learning and testing [AVD](https://avd.sh/en/latest/).
+Some labs can be easily adjusted to your needs using simplified CSV and YAML inputs.
+
+Currently following labs are available:
+- AVD repository to build EVPN MLAG network
+- AVD repository to build EVPN Active-Active network
+
+## Lab Requirements
+
+A machine with Docker CE or Docker Desktop is required.
+Following operating systems were tested:
+- Ubuntu LTS Server
+- MacOs (on x86 laptops only)
+The lab is expected to run on any major Linux distribution.
+Please test and contribute by reporting and/or fixing possible issues.
+
+Hardware requirements depend on the number of containers deployed. Please read [Containerlab Scalability with cEOS](#containerlab-scalability-with-ceos) section before deploying a large topology.
+For a small topology of 10+ cEOS containers 8 vCPUs and 10 GB RAM are recommended.
+
+> **WARNING**: Please make sure that your host has enough resorces. Otherwise Containerlab can enter stale state and require Docker restart.
+
+To install Docker on a Linux machine, check [this guide](https://docs.docker.com/engine/install/ubuntu/).
+To get Docker Desktop, check [docker.com](https://www.docker.com/products/docker-desktop/).
+
+If you are planning to deploy Containerlab on a dedicated Linux host, you can also install and configure KVM and deploy CloudVision Portal as a virtual machine. To install KVM, check [this guide](https://github.com/arista-netdevops-community/kvm-lab-for-network-engineers) or any other resource available on internet. Once KVM is installed, you can use one of the following repositories to install CVP:
+- ISO-based KVM installer - currently not available on Github and distributed under NDA only. That will be fixed later.
+- [CVP KVM deployer](https://github.com/arista-netdevops-community/cvp-kvm-deployer)
+- [CVP Ansible provisioning](https://github.com/arista-netdevops-community/cvp-ansible-provisioning)
+
+It is also possible to run CVP on a dedicated host and a different hypervisor as long as it can be reached by cLab devices.
+
+> NOTE: to use CVP VM with container lab it's not required to recompile Linux core. That's only required if you plan to use vEOS on KVM for you lab setup.
+
+The lab setup diagram:
+
+![lab diagram](media/avd_quickstart.jpeg)
 
 ## Release Notes:
 
@@ -49,21 +88,8 @@ The lab can be used together with CVP VM, but it's not mandatory.
 
 ## Lab Prerequisites
 
-The lab requires a single Linux host (Ubuntu server recommended) with [Docker](https://docs.docker.com/engine/install/ubuntu/) and [Containerlab](https://containerlab.srlinux.dev/install/) installed.
-It's possible to run [Containerlab on MacOS](https://containerlab.srlinux.dev/install/#mac-os), but that was not tested. Dedicated Linux machine is currently the preferred option.
+The lab requires a single Linux host (Ubuntu server recommended) with [Docker](https://docs.docker.com/engine/install/ubuntu/) 
 
-To test AVD with CVP, KVM can be installed on the same host. To install KVM, check [this guide](https://github.com/arista-netdevops-community/kvm-lab-for-network-engineers) or any other resource available on internet. Once KVM is installed, you can use one of the following repositories to install CVP:
-- ISO-based KVM installer - currently not available on Github and distributed under NDA only. That will be fixed later.
-- [CVP KVM deployer](https://github.com/arista-netdevops-community/cvp-kvm-deployer)
-- [CVP Ansible provisioning](https://github.com/arista-netdevops-community/cvp-ansible-provisioning)
-
-It is definitely possible to run CVP on a dedicated host and a different hypervisor as long as it can be reached by cLab devices.
-
-> NOTE: to use CVP VM with container lab it's not required to recompile Linux core. That's only required if you plan to use vEOS on KVM for you lab setup.
-
-The lab setup diagram:
-
-![lab diagram](media/avd_quickstart.jpeg)
 
 ## How To Use The Lab
 
