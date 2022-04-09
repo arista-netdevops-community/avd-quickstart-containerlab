@@ -1,11 +1,18 @@
 # AVD Quickstart Containerlab
 
 > **WARNING**
-> This repository is still under construction. It's fully functional, but has number of limitations.
-> For example:
-> - README is still work-in-progress
-> - Lab configuration and adresses are hardcoded and have to be redefined in many different files if you setup is different. That will be simplified before the final release.
-> - Some workflow and code optimization required.
+> Please read the guide before you start using AVD Quickstart Containerlab.
+> Make sure that you understand the consequences of running Containerlab, cEOS-lab and various scripts provided with this repository on your machine. The components of the lab may change your system settings as they will have super user privileges.
+> While this repository was tested on a number of machines without doing any harm, have a plan B. You are responsible for your lab machine, not the contributors.
+> 
+> `"With su power comes great responsibility" (c)` 
+> ```text
+>   /  _  \
+> \_\_(_)_/_/
+>  _/ /o\ \_
+>    /   \
+> ```
+> 
 
 - [AVD Quickstart Containerlab](#avd-quickstart-containerlab)
 - [Overview](#overview)
