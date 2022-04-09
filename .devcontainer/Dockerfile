@@ -21,4 +21,7 @@ RUN pip install --upgrade pip \
     && pip install -r requirements.txt \
     && sudo rm -rf /tmp/pip-tmp
 
+# add alias that can be used to add more aliases for quick lab access
+RUN echo "alias add_aliases='. ${HOME}/add_aliases.zshrc'">> ${HOME}/.zshrc
+
 WORKDIR /home/avd/projects
