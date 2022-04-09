@@ -12,7 +12,9 @@
 >  _/ /o\ \_
 >    /   \
 > ```
-> 
+
+**For M1 MacBooks owners**
+Sorry. Not yet supported.
 
 - [AVD Quickstart Containerlab](#avd-quickstart-containerlab)
 - [Overview](#overview)
@@ -38,6 +40,12 @@ The lab can be used together with CVP VM, but it's not mandatory.
   - Improve lab topology.
   - Improve lab workflow.
   - Add EVPN AA scenario.
+- **0.3**
+  - The lab now only requires Docker. Containerlab installation is not required and will be running inside provided Docker container.
+  - When building container with `make build`, UID and GID will be updated using intermediate container similar to the container used by VSCode devcontainers.
+  - The Dockerfile can be used as VSCode devcontainer or standalone.
+  - The lab environment is now supported and tested on MacOS. x86 MacBooks only.
+  - Dynamic aliases in the container for quick access to lab devices.
 
 ## Lab Prerequisites
 
