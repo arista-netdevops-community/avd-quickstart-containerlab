@@ -88,6 +88,7 @@ inventory_evpn_mlag: ## onboard devices to CVP
 clab_deploy: ## Deploy ceos lab
 	if [ "${_IN_CONTAINER}" = "True" ]; then \
 		sudo containerlab deploy --debug --topo $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}/clab/$(CLAB_NAME).clab.yml --max-workers 2 --timeout 5m ;\
+		source $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}/add_aliases.zshrc ;\
 	else \
 		docker run --rm -it --privileged \
 			--network host \
@@ -100,6 +101,7 @@ clab_deploy: ## Deploy ceos lab
 			-e AVD_GIT_USER="$(shell git config --get user.name)" \
 			-e AVD_GIT_EMAIL="$(shell git config --get user.email)" \
 			$(DOCKER_NAME):latest sudo containerlab deploy --debug --topo $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}/clab/$(CLAB_NAME).clab.yml --max-workers 2 --timeout 5m ;\
+		source $(CURRENT_DIR)/${AVD_REPOSITORY_NAME}/add_aliases.zshrc ;\
 	fi
 
 .PHONY: clab_destroy
