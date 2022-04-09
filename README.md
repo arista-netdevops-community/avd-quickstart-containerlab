@@ -20,7 +20,7 @@
 - [AVD Quickstart Containerlab](#avd-quickstart-containerlab)
   - [Overview](#overview)
   - [Lab Requirements](#lab-requirements)
-  - [Release Notes:](#release-notes)
+  - [Release Notes](#release-notes)
   - [How To Use The Lab](#how-to-use-the-lab)
   - [How To Destroy The Lab](#how-to-destroy-the-lab)
 
@@ -60,6 +60,7 @@ To install Docker on a Linux machine, check [this guide](https://docs.docker.com
 To get Docker Desktop, check [docker.com](https://www.docker.com/products/docker-desktop/).
 
 If you are planning to deploy Containerlab on a dedicated Linux host, you can also install and configure KVM and deploy CloudVision Portal as a virtual machine. To install KVM, check [this guide](https://github.com/arista-netdevops-community/kvm-lab-for-network-engineers) or any other resource available on internet. Once KVM is installed, you can use one of the following repositories to install CVP:
+
 - ISO-based KVM installer - currently not available on Github and distributed under NDA only. That will be fixed later.
 - [CVP KVM deployer](https://github.com/arista-netdevops-community/cvp-kvm-deployer)
 - [CVP Ansible provisioning](https://github.com/arista-netdevops-community/cvp-ansible-provisioning)
@@ -72,7 +73,7 @@ The lab setup diagram:
 
 ![lab diagram](media/lab_setup.png)
 
-## Release Notes:
+## Release Notes
 
 - **0.1**
   - initial release with many shortcuts
