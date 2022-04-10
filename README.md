@@ -20,9 +20,11 @@
 - [AVD Quickstart Containerlab](#avd-quickstart-containerlab)
   - [Overview](#overview)
   - [Lab Requirements](#lab-requirements)
+  - [MacOS Limitations](#macos-limitations)
   - [Release Notes](#release-notes)
   - [How To Use The Lab](#how-to-use-the-lab)
   - [How To Destroy The Lab](#how-to-destroy-the-lab)
+  - [Containerlab Scalability with cEOS](#containerlab-scalability-with-ceos)
 
 ## Overview
 
@@ -72,6 +74,10 @@ It is also possible to run CVP on a dedicated host and a different hypervisor as
 The lab setup diagram:
 
 ![lab diagram](media/lab_setup.png)
+
+## MacOS Limitations
+
+> under construction, coming soon
 
 ## Release Notes
 
@@ -140,3 +146,7 @@ run                            run docker image, if the image is not present - b
 
 1. Execute `make clab_destroy` to destroy the containerlab.
 2. Execute `make rm` or `make clean` to delete the generated AVD inventory.
+
+## Containerlab Scalability with cEOS
+
+> under construction, coming soon
