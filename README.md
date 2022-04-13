@@ -20,7 +20,7 @@
 - [AVD Quickstart Containerlab](#avd-quickstart-containerlab)
   - [Overview](#overview)
   - [Lab Requirements](#lab-requirements)
-  - [MacOS Limitations](#macos-limitations)
+  - [MacOS Limitations and Required Settings](#macos-limitations-and-required-settings)
   - [Release Notes](#release-notes)
   - [How To Use The Lab](#how-to-use-the-lab)
   - [How To Destroy The Lab](#how-to-destroy-the-lab)
@@ -75,9 +75,19 @@ The lab setup diagram:
 
 ![lab diagram](media/lab_setup.png)
 
-## MacOS Limitations
+## MacOS Limitations and Required Settings
 
-> under construction, coming soon
+> The AVD Quickstart lab is not supported on M1 MacBooks right now.
+
+Prerequisites to stat AVD Quickstart on MacOS:
+
+1. cEOS-lab requires cgroup v1 support. But default, latest Docker Desktop settings only support cgroup v2. To enable cgroup v1 support in Docker Desktop, you can execute `make prepare_macos` command, that will change Docker Desktop `settings.json`, install additional tools with `brew` and restart the Docker Desktop app. [Homebrew](https://brew.sh/) must be installed om your machine before executing `make prepare_macos`. cEOS-lab will support cgroup v2 very soon. When that will happen, the repository will be updated accordingly.
+2. Docker Desktop must have access to a number directories to run AVD Quickstart environment. Some locations do not even exist on MacOS, but can exist inside the container. That means, they must be present in Docker Desktop settings, but it's not possible to add them via GUI. `make prepare_macos` will add these directories to Docker Desktop settings. This tool requires [Homebrew](https://brew.sh/) to be installed first.
+3. Allow full disk access fo Docker Desktop in `System Preferences` > `Security & Privacy`. You can limit that to specific directories, but full disk access is preferred for simplicity.
+
+![full-disk-access](media/full-disk-access.png)
+
+> `make prepare_macos` script is based on the code mentioned in this [Docker Desktop for Mac issue on Github](https://github.com/docker/for-mac/issues/6073). With some modifications to allow access to certain directories and install missing tools.
 
 ## Release Notes
 
