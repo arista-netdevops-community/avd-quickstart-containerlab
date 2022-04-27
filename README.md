@@ -81,8 +81,8 @@ The lab setup diagram:
 
 Prerequisites to stat AVD Quickstart on MacOS:
 
-1. cEOS-lab requires cgroup v1 support. But default, latest Docker Desktop settings only support cgroup v2. To enable cgroup v1 support in Docker Desktop, you can execute `make prepare_macos` command, that will change Docker Desktop `settings.json`, install additional tools with `brew` and restart the Docker Desktop app. [Homebrew](https://brew.sh/) must be installed om your machine before executing `make prepare_macos`. cEOS-lab will support cgroup v2 very soon. When that will happen, the repository will be updated accordingly.
-2. Docker Desktop must have access to a number directories to run AVD Quickstart environment. Some locations do not even exist on MacOS, but can exist inside the container. That means, they must be present in Docker Desktop settings, but it's not possible to add them via GUI. `make prepare_macos` will add these directories to Docker Desktop settings. This tool requires [Homebrew](https://brew.sh/) to be installed first.
+1. It is recommended to use cEOS-lab 4.28.0F or higher. Earlier cEOS-lab versions require cgroup v1 support. But default, latest Docker Desktop only supports cgroup v2. To enable cgroup v1 support in Docker Desktop, you can uncomment corresponding line in `MacOS_set_DockerDesktop.sh` script before executing it with `make prepare_macos` command.
+2. Docker Desktop must have access to a number directories to run AVD Quickstart environment. Some locations do not even exist on MacOS, but can exist inside the container. That means, they must be present in Docker Desktop settings, but it's not possible to add them via GUI. `make prepare_macos` will add these directories to Docker Desktop `settings.json` and install required tools with `brew`. This tool requires [Homebrew](https://brew.sh/) to be installed first.
 3. Allow full disk access fo Docker Desktop in `System Preferences` > `Security & Privacy`. You can limit that to specific directories, but full disk access is preferred for simplicity.
 
 ![full-disk-access](media/full-disk-access.png)

@@ -22,8 +22,8 @@ test -z "$(docker ps --quiet 2>/dev/null)" && osascript -e 'quit app "Docker"'
 test -z "$(brew list | grep jq 2>/dev/null)" && brew install jq
 test -z "$(brew list | grep moreutils 2>/dev/null)" && brew install moreutils
 
-# enable cgroup v1 support
-jq '.deprecatedCgroupv1 = true' ~/Library/Group\ Containers/group.com.docker/settings.json | sponge ~/Library/Group\ Containers/group.com.docker/settings.json
+# enable cgroup v1 support - not required as of cEOS-lab 4.28.0F
+# jq '.deprecatedCgroupv1 = true' ~/Library/Group\ Containers/group.com.docker/settings.json | sponge ~/Library/Group\ Containers/group.com.docker/settings.json
 jq '.filesharingDirectories += ["/var/run/docker.sock"]' ~/Library/Group\ Containers/group.com.docker/settings.json | sponge ~/Library/Group\ Containers/group.com.docker/settings.json
 jq '.filesharingDirectories += ["/etc/hosts"]' ~/Library/Group\ Containers/group.com.docker/settings.json | sponge ~/Library/Group\ Containers/group.com.docker/settings.json
 # on MacOS /etc -> /private/etc
