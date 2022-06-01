@@ -22,6 +22,8 @@ management api http-commands
 interface Management0
    vrf MGMT
    {{ if .MgmtIPv4Address }}   ip address {{ .MgmtIPv4Address }}/{{ .MgmtIPv4PrefixLength }}{{end}}
+   no lldp transmit
+   no lldp receive
 !
 no ip routing vrf MGMT
 !
