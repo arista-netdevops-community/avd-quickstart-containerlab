@@ -1,3 +1,7 @@
+# DEPRECATED
+
+![No Maintenance](https://img.shields.io/maintenance/no/2023.svg)
+
 # AVD Quickstart Containerlab
 
 > **WARNING**  
